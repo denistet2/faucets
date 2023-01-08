@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Приют для питомцев</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="styles/forma-two-style.css" />
+  </head>
+
+  <body>
+    <div class="modal-block three">
+      <form>
+        <h1>Автопомощь</h1>
+        <a href="#" class="closebtn"></a>
+        <div class="line"></div>
+        <h2>Заявка</h2>
+        <div class="text-block">
+          Отправьте нам заявку о том, что готовы помочь. Когда нам будет
+          необходима помощь в транспортировке, мы позвоним вам.
+        </div>
+        <div class="new-owner">
+          <input type="text" name="name" placeholder="Фамилия и имя" />
+          <input type="tel" name="phone" placeholder="Номер телефона" />
+        </div>
+        <div>
+          <p class="correct">Обязательное поле для заполнения</p>
+        </div>
+
+        <div class="variant-transport">
+          <h3>Выберите вид автопомощи</h3>
+          <div class="variant-help">
+            <label
+              ><input type="checkbox" /> Доставка еды, медикаментов и других
+              небольших вещей</label
+            >
+            <label
+              ><input type="checkbox" />Доставка сена или соломы, строительных
+              материлов для будок и других крупногабаритных вещей
+            </label>
+            <label
+              ><input type="checkbox" />Транспортировка небольших собак и
+              котов</label
+            >
+            <label
+              ><input type="checkbox" />Транспортировка больших собак</label
+            >
+          </div>
+        </div>
+        <div>
+          <textarea name="message" placeholder="Замечания"></textarea>
+        </div>
+        <div class="key-block">
+          <input type="submit" name="submit_btn" value="Отправить" />
+          <input type="submit" name="reset_btn" value="Отмена" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

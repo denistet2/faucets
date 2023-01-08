@@ -1,0 +1,748 @@
+@font-face {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 72px;
+    font-display: swap;
+    src: url("../fonts/Gilroy-Regular.woff") format("woff2"),
+      url("../fonts/Gilroy-Regular.woff") format("woff");
+  }
+  @media screen and (max-width: 1920px) {
+    body {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+     
+    }
+    .modal-block-one {
+      position: absolute;
+      margin: 0px;
+      padding: 0px;
+    }
+    form {
+      height: 735px;
+      width: 525px;
+      left: 0px;
+      top: 0px;
+      border-radius: 5px;
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+  
+      background: #ffffff;
+      box-shadow: 0px 0px 22px rgba(161, 161, 161, 0.25);
+      border-radius: 5px;
+    }
+  
+    h1 {
+      width: 388px;
+      height: 36px;
+      margin-top: 30px;
+      margin-bottom: 0px;
+      margin-left: 40px;
+      margin-right: 40px;
+  
+      /* H3 Medium 28 */
+  
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 24px;
+      /* or 86% */
+  
+      /* Gray 6 */
+  
+      color: #b3b3b3;
+    }
+    .modal-block-one .closebtn {
+      position: absolute;
+      height: 24px;
+      width: 24px;
+      left: 461px;
+      top: 30px;
+      border-radius: 0px;
+  
+      background-image: url("../images/close.svg");
+    }
+    .modal-block-one .line {
+      height: 0px;
+      left: 485px;
+      right: -405px;
+      top: 74px;
+      margin-left: 40px;
+      margin-right: 40px;
+      margin-top: 8px;
+      border: 1px solid;
+  
+      border-image-source: linear-gradient(0deg, #eebf3a, #eebf3a),
+        linear-gradient(0deg, #eebf3a, #eebf3a),
+        linear-gradient(0deg, #eebf3a, #eebf3a);
+      transform: rotate(180deg);
+    }
+    .foto-block {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .pitomec-foto {
+      position: absolute;
+      height: 91px;
+      width: 91px;
+      left: 39px;
+      top: 91px;
+      border-radius: 0px;
+      background-image: url("../images/monic.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+    }
+    .name.pitomec {
+      position: absolute;
+      height: 20px;
+      left: 27.43%;
+      right: 7.62%;
+      top: 113px;
+  
+      /* H4 Medium */
+  
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 20px;
+      /* identical to box height, or 91% */
+  
+      display: flex;
+      align-items: center;
+    }
+    .about.pitomec.monic {
+      position: absolute;
+      height: 20px;
+      left: 27.43%;
+      right: 7.62%;
+      top: 141px;
+  
+      /* Text sm medium */
+  
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      /* identical to box height, or 143% */
+  
+      display: flex;
+      align-items: center;
+  
+      /* Gray 4 */
+  
+      color: #6b6b6b;
+    }
+    .text-block {
+      position: absolute;
+      width: 402px;
+      height: 67px;
+      left: 40px;
+      bottom: 458px;
+      top: 210px;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 140%;
+      display: flex;
+      align-items: center;
+      color: #6b6b6b;
+    }
+    input {
+      height: 40px;
+      width: 445px;
+      border-radius: 2px;
+      background: #ffffff;
+      border: 1px solid #d6d6d6;
+      box-sizing: border-box;
+    }
+    ::-moz-placeholder {
+      position: relative;
+      height: 20px;
+      left: 16px;
+      right: 17px;
+      top: 10px;
+  
+      /* Text sm medium */
+  
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      /* identical to box height, or 143% */
+  
+      /* Gray 4 */
+  
+      color: #6b6b6b;
+      opacity: 0.7;
+    }
+    .new-owner {
+      position: absolute;
+      height: 99px;
+      width: 445px;
+      left: 40px;
+      top: 309px;
+      border-radius: 0px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    p {
+      position: absolute;
+      margin-top: 2px;
+      width: 356px;
+      height: 20px;
+      left: 56px;
+      top: 410px;
+  
+      /* Text sm normal */
+  
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 140%;
+      /* identical to box height, or 20px */
+  
+      display: flex;
+      align-items: center;
+  
+      /* Error / error 500 */
+  
+      color: #cf2835;
+    }
+    p:nth-child(2){
+      display: none;
+  }
+    input.owner-name {
+      left: 40px;
+      top: 309px;
+      border-radius: 0px;
+    }
+    .owner-tel {
+      height: 40px;
+      width: 445px;
+      left: 40px;
+      top: 368px;
+      border-radius: 0px;
+    }
+  
+    textarea {
+      position: absolute;
+      height: 76px;
+      width: 445px;
+      left: 40px;
+      top: 449px;
+      border-radius: 0px;
+      position: absolute;
+  
+      /* base / white */
+  
+      background: #ffffff;
+      /* Gray 7 */
+  
+      border: 1px solid #d6d6d6;
+      box-sizing: border-box;
+      border-radius: 2px;
+    }
+    .contact {
+      position: absolute;
+      width: 445px;
+      height: 82px;
+      left: 40px;
+      bottom: 104px;
+  
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 140%;
+      /* or 20px */
+  
+      /* Gray 3 */
+  
+      color: #474747;
+    }
+  
+    .key-block input:first-child {
+      position: absolute;
+      width: 168px;
+      height: 42px;
+      left: 40px;
+      top: 663px;
+      bottom: 30px;
+  
+      background: #fee39e;
+      box-shadow: 7px 7px 16px #e3e3e3, -3px -4px 8px rgba(255, 255, 255, 0.9),
+        inset 13px 22px 8px rgba(0, 0, 0, 0.02);
+      background: #ffe7a2;
+      box-shadow: 3px 3px 13px rgba(0, 0, 0, 0.25);
+      border-radius: 58px;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 40px;
+      color: #6b6b6b;
+      opacity: 0.7;
+    }
+    .key-block input:last-child {
+      position: absolute;
+      width: 143px;
+      height: 42px;
+      left: 342px;
+      top: 663px;
+      bottom: 30px;
+      height: 42px;
+      border-radius: 58px;
+  
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 40px;
+      /* or 200% */
+  
+      background: linear-gradient(180deg, #fbfbfb 0%, #f6f6f6 100%);
+      box-shadow: 7px 7px 16px #e3e3e3, -4px -4px 8px rgba(255, 255, 255, 0.7),
+        inset 13px 22px 8px rgba(0, 0, 0, 0.02);
+  
+      border-radius: 58px;
+  
+      /* Gray 2 */
+  
+      color: #242424;
+    }
+    .key-block input:last-child :hover {
+      background: #f6f6f6;
+      box-shadow: 3px 3px 13px rgba(128, 128, 128, 0.25);
+      border-radius: 58px;
+    }
+    ::-webkit-input-placeholder {
+      left: 16px;
+      top: 10px;
+      height: 20px;
+      width: 412px;
+      border-radius: nullpx;
+  
+      /* Text sm medium */
+  
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      /* identical to box height, or 143% */
+  
+      /* Gray 4 */
+  
+      color: #6b6b6b;
+      opacity: 0.7;
+    }
+  }
+  /*----------------------------------------------------------------------------------------------------------------*/
+  /* --------------------------------------------------------------------------------------------------------------- */
+  /* ----------------------------------------------------------------------------------------------------------------- */
+  @media screen and (max-width: 360px) {
+    body {
+      width: 100%;
+      height: 782px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      
+      margin: 0px;
+      padding: 0px;
+    }
+    .modal-block-one {
+      position: absolute;
+      margin: 0px;
+      padding: 0px;
+    }
+    form {
+      height: 782px;
+      width: 360px;
+      left: 0px;
+      top: 0px;
+      border-radius: 5px;
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+  
+      background: #ffffff;
+      box-shadow: 0px 0px 22px rgba(161, 161, 161, 0.25);
+      border-radius: 5px;
+    }
+  
+    h1 {
+    
+        width: 266px;
+        height: 36px;
+        left: 30px;
+        top: 30px;
+        
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 24px;
+        border-radius: nullpx;
+        /* or 109% */
+  
+  
+  /* Gray 6 */
+  
+  color: #B3B3B3;
+  
+    }
+    .modal-block-one .closebtn {
+      position: absolute;
+      height: 20px;
+      width: 20px;
+      left: 293px;
+      top: 30px;
+      border-radius: 0px;
+  
+      background-image: url("../images/close.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .modal-block-one .line {
+     
+      height: 0px;
+      left: 330px;
+      right: -270px;
+      top: 74px;
+      
+     margin-right: 30px;
+      margin-top: 8px;
+      border: 1px solid;
+  
+      border-image-source: linear-gradient(0deg, #eebf3a, #eebf3a),
+        linear-gradient(0deg, #eebf3a, #eebf3a),
+        linear-gradient(0deg, #eebf3a, #eebf3a);
+      transform: rotate(180deg);
+    }
+    .foto-block {
+      height: 91px;
+      width: 300px;
+      left: 30px;
+      top: 92px;
+      border-radius: 0px;
+      
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .pitomec-foto {
+      position: absolute;
+      height: 91px;
+      width: 91px;
+      left: 39px;
+      top: 91px;
+      border-radius: 0px;
+      background-image: url("../images/monic.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+    }
+    .name.pitomec {
+      position: absolute;
+  height: 20px;
+  left: 37.22%;
+  right: 8.33%;
+  
+  
+      /* H4 Medium */
+  
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 20px;
+      /* identical to box height, or 91% */
+  
+      display: flex;
+      align-items: center;
+    }
+    .about.pitomec.monic {
+      position: absolute;
+  height: 20px;
+  left: 37.22%;
+  right: 8.33%;
+  
+  
+      /* Text sm medium */
+  
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      /* identical to box height, or 143% */
+  
+      display: flex;
+      align-items: center;
+  
+      /* Gray 4 */
+  
+      color: #6b6b6b;
+    }
+    .text-block {
+      position: absolute;
+      height: 67px;
+  width: 300px;
+  left: 30px;
+  top: 210px;
+  border-radius: nullpx;
+  
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 140%;
+      display: flex;
+      align-items: center;
+      color: #6b6b6b;
+    }
+    input {
+      height: 40px;
+  width: 300px;
+  left: 0px;
+  top: 0px;
+  border-radius: 2px;
+  
+      background: #ffffff;
+      border: 1px solid #d6d6d6;
+      box-sizing: border-box;
+    }
+    ::-moz-placeholder {
+      position: relative;
+      height: 20px;
+      left: 16px;
+      right: 17px;
+      top: 10px;
+  
+      /* Text sm medium */
+  
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      /* identical to box height, or 143% */
+  
+      /* Gray 4 */
+  
+      color: #6b6b6b;
+      opacity: 0.7;
+    }
+    .new-owner {
+      position: absolute;
+      height: 99px;
+     
+      left: 30px;
+      top: 309px;
+      border-radius: 0px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    p:last-child{
+      position: absolute;
+      margin-top: 2px;
+      height: 20px;
+      width: 237px;
+      left: 58px;
+      top: 407px;
+      border-radius: nullpx;
+      
+  
+      /* Text sm normal */
+  
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 140%;
+      /* identical to box height, or 20px */
+  
+      display: flex;
+      align-items: center;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 140%;
+      /* identical to box height, or 20px */
+      
+      display: flex;
+      align-items: center;
+      
+      /* Gray 6 */
+      
+      color: #B3B3B3;
+    }
+    p:first-child{
+        display: none;
+    }
+  
+    input.owner-name {
+      left: 30px;
+      top: 309px;
+      border-radius: 0px;
+    }
+    .owner-tel {
+      height: 30px;
+      width: 300px;
+      left: 40px;
+      top: 368px;
+      border-radius: 0px;
+    }
+  
+    textarea {
+      position: absolute;
+      height: 76px;
+      width: 300px;
+      left: 30px;
+      top: 449px;
+      border-radius: 0px;
+  
+      /* base / white */
+  
+      background: #ffffff;
+      /* Gray 7 */
+  
+      border: 1px solid #d6d6d6;
+      box-sizing: border-box;
+      border-radius: 2px;
+    }
+    .contact {
+      position: absolute;
+      height: 99px;
+      width: 300px;
+      left: 30px;
+      top: 549px;
+      border-radius: nullpx;
+      
+  
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 140%;
+      /* or 20px */
+  
+      /* Gray 3 */
+  
+      color: #474747;
+    }
+    .key-block{
+        position: absolute;
+        height: 80px;
+  width: 168px;
+  left: 109px;
+  top: 672px;
+  border-radius: 0px;
+  
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+  
+    .key-block input:first-child {
+      position: absolute;
+      width: 168px;
+      height: 30px;
+      left: 0%;
+      right: 0%;
+      top: 0%;
+      bottom: 0%;
+      background: linear-gradient(180deg, #FFDE89 0%, #FFCB38 100%);
+      box-shadow: 7px 7px 16px #E3E3E3, -3px -4px 8px rgba(255, 255, 255, 0.9), inset 13px 22px 8px rgba(0, 0, 0, 0.02);
+      border-radius: 58px;
+      font-family: Gilroy;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  /* Gray 2 */
+  
+  color: #242424;
+    }
+    .key-block input:last-child {
+      position: absolute;
+      height: 30px;
+  left: 9.56%;
+  right: 9.56%;
+  top: 50px;
+  bottom: 0%;
+  
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 40px;
+  /* or 250% */
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  /* Gray 2 */
+  
+  color: #242424;
+    }
+    .key-block input:last-child :hover {
+      background: #f6f6f6;
+      box-shadow: 3px 3px 13px rgba(128, 128, 128, 0.25);
+      border-radius: 58px;
+    }
+    ::-webkit-input-placeholder {
+      left: 16px;
+      top: 10px;
+      height: 20px;
+      width: 412px;
+      border-radius: nullpx;
+  
+      /* Text sm medium */
+  
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      /* identical to box height, or 143% */
+  
+      /* Gray 4 */
+  
+      color: #6b6b6b;
+      opacity: 0.7;
+    }
+  }
+  

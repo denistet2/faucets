@@ -1,0 +1,34 @@
+{% extends 'home_pets/base.html' %}
+{% load static %}
+
+{% block title %}
+Волонтерство
+{% endblock %}
+
+{% block content %}
+<body>
+	<h2>Волонтерство</h2>
+<form action="" method="">
+
+  <div></div>
+  <p>Заявка</p>
+  <p>Отправьте нам заявку о том, что готовы помочь. Когда нам будет необходима помощь, мы позвоним вам.</p>
+  <input type="text" name="name" placeholder="Фамилия и имя" required>
+  <div>
+  <input type="tel" name="phone" placeholder="Номер телефона" required>
+  <p class=correct >Обязательное поле для заполнения</p>
+
+  </div>
+
+     <div>
+	   <label><input type="radio"/> Хочу помогать на постоянной основе (расписание можно подобрать так, как будет вам удобно)</label>
+	   <label><input type="radio"/>Готов помогать иногда. Хочу выбрать удобное для меня время</label>
+   </div>
+   <div>
+  <textarea name="message" placeholder="Замечания"></textarea>
+  </div>
+  <input type="submit" name="submit_btn" value="Отправить">
+   <input type="submit" name="reset_btn" value="Отмена">
+</form>
+</body>
+{% endblock %}

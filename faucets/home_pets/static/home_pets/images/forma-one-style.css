@@ -1,0 +1,26 @@
+body{
+    height: 735px;
+width: 525px;
+left: 0px;
+top: 0px;
+border-radius: 5px;
+
+}
+h1{
+    height: 36px;
+width: 388px;
+left: 40px;
+top: 30px;
+border-radius: nullpx;
+font-family: Gilroy;
+font-style: normal;
+font-weight: 600;
+font-size: 28px;
+line-height: 24px;
+/* or 86% */
+
+
+/* Gray 6 */
+
+color: #B3B3B3;
+}
