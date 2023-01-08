@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import HomePet
 
 # Create your views here.
 
@@ -33,7 +33,8 @@ def benefit(request):
 
 
 def wards(request):
-    return render(request, 'home_pets/wards.html')
+    pets = HomePet.objects.all()
+    return render(request, 'home_pets/wards.html',{'pets': pets})
 
 
 def tohome(request):

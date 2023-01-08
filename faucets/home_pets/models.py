@@ -2,8 +2,17 @@ from django.db import models
 from datetime import datetime
 
 
+
 class HomePet(models.Model):
-    pets = models.CharField('Категория', max_length=20, help_text="Вид питомца")
+    PETS_VAR = [
+
+        (1, 'Собака'),
+        (2, 'Кот'),
+        (3, 'Птица'),
+        (4, 'Насекомое')
+
+    ]
+    pets = models.IntegerField('Категория', choices=PETS_VAR, help_text="Вид питомца" )
     foto = models.ImageField()
     name_pets = models.CharField('Кличка', max_length=20, help_text="Кличка")
     age_pets = models.IntegerField('Возвраст', help_text="Возраст")

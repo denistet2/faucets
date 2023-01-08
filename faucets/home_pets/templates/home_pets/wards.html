@@ -10,19 +10,18 @@
      <section class="list-podopechnih">
 		<h2 id="ower-pets">Наши подопечные</h2>
 		  <div class="list carts podopechnih">
+			  {% for p in pets %}
 			      <div class="cart pitomec monic">
 				        <div class="foto pitomec"></div>
 				            <div class="name pitomec">
-					             <h4 class="name-cart-pitomec monic">Моник</h4>
+					             <h4 class="name-cart-pitomec monic">{{pets.name_pets}}</h4>
 				            </div>
 
 				        <div class="line carts"></div>
 
-				        <p class="about pitomec monic">Мальчик, 7 месяцев</p>
+				        <p class="about pitomec monic">{{pets.age_pets}}</p>
 
-				        <p class="more about pitomec monic">К поводку приучен. Не агрессивный. В еде не привередничает. С
-					                                        другими животными не конфликтует. Привит. Очень плачет и хочет на ручки. Отдается только в добрые
-					                                        руки и под паспорт.</p>
+				        <p class="more about pitomec monic">{{pets.text_about_pets}}</p>
 				        <div class="key-block ">
 					           <a href="{% url 'tohome' %}" >
 							     <button class="key-top" onclick=''>Забрать домой</button>
@@ -32,93 +31,94 @@
 							   </a>
 				        </div>
 			       </div>
-			<div class="cart pitomec lunatic">
-				<div class="foto pitomec"></div>
-				<div class="name pitomec">
-					<h4 class="name-cart-pitomec monic">Лунатик</h4>
-				</div>
+			  {% endfor %}
+<!--			<div class="cart pitomec lunatic">-->
+<!--				<div class="foto pitomec"></div>-->
+<!--				<div class="name pitomec">-->
+<!--					<h4 class="name-cart-pitomec monic">Лунатик</h4>-->
+<!--				</div>-->
 
-				<div class="line carts"></div>
+<!--				<div class="line carts"></div>-->
 
-				<p class="about pitomec monic">Мальчик, 7 месяцев</p>
+<!--				<p class="about pitomec monic">Мальчик, 7 месяцев</p>-->
 
-				<p class="more about pitomec monic">Она не знает, что такое – царапаться и кусаться, она не знает, что
-					такое нападать на других животных.</p>
-				<div class="key-block">
-					<button class="key-top">Забрать домой</button>
-					<button class="key-down">Забрать на передержку</button>
-				</div>
-			</div>
-			<div class="cart pitomec gerda">
-				<div class="foto pitomec"></div>
-				<div class="name pitomec">
-					<h4 class="name-cart-pitomec monic">Герда</h4>
-				</div>
+<!--				<p class="more about pitomec monic">Она не знает, что такое – царапаться и кусаться, она не знает, что-->
+<!--					такое нападать на других животных.</p>-->
+<!--				<div class="key-block">-->
+<!--					<button class="key-top">Забрать домой</button>-->
+<!--					<button class="key-down">Забрать на передержку</button>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="cart pitomec gerda">-->
+<!--				<div class="foto pitomec"></div>-->
+<!--				<div class="name pitomec">-->
+<!--					<h4 class="name-cart-pitomec monic">Герда</h4>-->
+<!--				</div>-->
 
-				<div class="carts line "></div>
+<!--				<div class="carts line "></div>-->
 
-				<p class="about pitomec monic">Мальчик, 7 месяцев</p>
+<!--				<p class="about pitomec monic">Мальчик, 7 месяцев</p>-->
 
-				<p class="more about pitomec monic">К поводку приучен. Не агрессивный. В еде не привередничает. С
-					другими животными не конфликтует. Привит. Очень плачет и хочет на ручки. Отдается только в добрые
-					руки и под паспорт.</p>
-				<div class="key-block">
-					<button class="key-top">Забрать домой</button>
-					<button class="key-down">Забрать на передержку</button>
-				</div>
-			</div>
+<!--				<p class="more about pitomec monic">К поводку приучен. Не агрессивный. В еде не привередничает. С-->
+<!--					другими животными не конфликтует. Привит. Очень плачет и хочет на ручки. Отдается только в добрые-->
+<!--					руки и под паспорт.</p>-->
+<!--				<div class="key-block">-->
+<!--					<button class="key-top">Забрать домой</button>-->
+<!--					<button class="key-down">Забрать на передержку</button>-->
+<!--				</div>-->
+<!--			</div>-->
 
-			<div class="cart pitomec saki">
-				<div class="foto pitomec"></div>
-				<div class="name pitomec">
-					<h4 class="name-cart-pitomec saki">Саки</h4>
-				</div>
+<!--			<div class="cart pitomec saki">-->
+<!--				<div class="foto pitomec"></div>-->
+<!--				<div class="name pitomec">-->
+<!--					<h4 class="name-cart-pitomec saki">Саки</h4>-->
+<!--				</div>-->
 
-				<div class="carts line "></div>
+<!--				<div class="carts line "></div>-->
 
-				<p class="about pitomec saki">Мальчик, 7 месяцев</p>
+<!--				<p class="about pitomec saki">Мальчик, 7 месяцев</p>-->
 
-				<p class="more about pitomec saki">Веселый и очень игривый, ему так нужны ваша любовь и ласка.У него
-					потрясающая густая шерсть в полосочку, «серьезные» желтые глаза и длиннющие белые усы.</p>
-				<div class="key-block">
-					<button class="key-top">Забрать домой</button>
-					<button class="key-down">Забрать на передержку</button>
-				</div>
-			</div>
-			<div class="cart pitomec monika">
-				<div class="foto pitomec"></div>
-				<div class="name pitomec">
-					<h4 class="name-cart-pitomec monika">Моника</h4>
-				</div>
+<!--				<p class="more about pitomec saki">Веселый и очень игривый, ему так нужны ваша любовь и ласка.У него-->
+<!--					потрясающая густая шерсть в полосочку, «серьезные» желтые глаза и длиннющие белые усы.</p>-->
+<!--				<div class="key-block">-->
+<!--					<button class="key-top">Забрать домой</button>-->
+<!--					<button class="key-down">Забрать на передержку</button>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="cart pitomec monika">-->
+<!--				<div class="foto pitomec"></div>-->
+<!--				<div class="name pitomec">-->
+<!--					<h4 class="name-cart-pitomec monika">Моника</h4>-->
+<!--				</div>-->
 
-				<div class="carts line "></div>
+<!--				<div class="carts line "></div>-->
 
-				<p class="about pitomec monika">Мальчик, 7 месяцев</p>
+<!--				<p class="about pitomec monika">Мальчик, 7 месяцев</p>-->
 
-				<p class="more about pitomec monika">Веселый и очень игривый, ему так нужны ваша любовь и ласка.У него
-					потрясающая густая шерсть в полосочку, «серьезные» желтые глаза и длиннющие белые усы.</p>
-				<div class="key-block">
-					<button class="key-top">Забрать домой</button>
-					<button class="key-down">Забрать на передержку</button>
-				</div>
-			</div>
-			<div class="cart pitomec adreatino">
-				<div class="foto pitomec"></div>
-				<div class="name pitomec">
-					<h4 class="name-cart-pitomec adreatino">Адреатино</h4>
-				</div>
+<!--				<p class="more about pitomec monika">Веселый и очень игривый, ему так нужны ваша любовь и ласка.У него-->
+<!--					потрясающая густая шерсть в полосочку, «серьезные» желтые глаза и длиннющие белые усы.</p>-->
+<!--				<div class="key-block">-->
+<!--					<button class="key-top">Забрать домой</button>-->
+<!--					<button class="key-down">Забрать на передержку</button>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="cart pitomec adreatino">-->
+<!--				<div class="foto pitomec"></div>-->
+<!--				<div class="name pitomec">-->
+<!--					<h4 class="name-cart-pitomec adreatino">Адреатино</h4>-->
+<!--				</div>-->
 
-				<div class="carts line "></div>
+<!--				<div class="carts line "></div>-->
 
-				<p class="about pitomec adreatino">Мальчик, 7 месяцев</p>
+<!--				<p class="about pitomec adreatino">Мальчик, 7 месяцев</p>-->
 
-				<p class="more about pitomec monic">Веселый и очень игривый, ему так нужны ваша любовь и ласка.У него
-					потрясающая густая шерсть в полосочку, «серьезные» желтые глаза и длиннющие белые усы.</p>
-				<div class="key-block">
-					<button class="key-top">Забрать домой</button>
-					<button class="key-down">Забрать на передержку</button>
-				</div>
-			</div>
+<!--				<p class="more about pitomec monic">Веселый и очень игривый, ему так нужны ваша любовь и ласка.У него-->
+<!--					потрясающая густая шерсть в полосочку, «серьезные» желтые глаза и длиннющие белые усы.</p>-->
+<!--				<div class="key-block">-->
+<!--					<button class="key-top">Забрать домой</button>-->
+<!--					<button class="key-down">Забрать на передержку</button>-->
+<!--				</div>-->
+<!--			</div>-->
 		  </div>
 		<div class="key-see-all">
 			<a href="#all-pitomecs">Посмотреть всех(157)</a>
