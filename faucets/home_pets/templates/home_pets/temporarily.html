@@ -2,34 +2,33 @@
 {% load static %}
 
 {% block title %}
-Забрать домой
+    Забрать домой
 {% endblock %}
 
 {% block content %}
-    <form>
-  <div>Забрать домой</div>
-  <div></div>
-  <div>Оставьте информацию о себе. Мы позвоним вам и договоримся, когда вы сможете забрать себе питомца на передержку.</div>
-  <input type="text" name="name" placeholder="Фамилия и имя">
-  <div>
-  <input type="tel" name="phone" placeholder="Номер телефона">
-  <p>Обязательное поле для заполнения</p>
-  </div>
-  <input type="date" name="date" placeholder="С какого числа">
-  <p>Обязательное поле для заполнения</p>
-  </div>
-  <input type="date" name="date" placeholder="По какое число">
-  <p>Обязательное поле для заполнения</p>
-  </div>
-  <div>
-  <textarea name="message" placeholder="Замечания"></textarea>
-  </div>
-   <div>Если у вас есть вопросы, можете позвонить нам:
-      <br>+375 (33) 6237879  Лена
-      <br>+375 (29) 7877791  Ольга
-      <br>+375 (29) 5837015  Рита
-   </div>
-  <input type="submit" name="submit_btn" value="Отправить">
-   <input type="submit" name="reset_btn" value="Отмена">
+<form>
+      <div>Забрать домой</div>
+      <div>Оставьте информацию о себе. Мы позвоним вам и договоримся, когда вы сможете забрать себе питомца на передержку.</div>
+        <input type="text" name="name" placeholder="Фамилия и имя">
+      <div>
+        <input type="tel" name="phone" placeholder="Номер телефона">
+        <p>Обязательное поле для заполнения</p>
+      </div>
+      <input type="date" name="date" placeholder="С какого числа">
+      <p>Обязательное поле для заполнения</p>
+      </div>
+      <input type="date" name="date" placeholder="По какое число">
+      <p>Обязательное поле для заполнения</p>
+      </div>
+      <div>
+      <textarea name="message" placeholder="Замечания"></textarea>
+      </div>
+       <div>Если у вас есть вопросы, можете позвонить нам:
+          <br>+375 (33) 6237879  Лена
+          <br>+375 (29) 7877791  Ольга
+          <br>+375 (29) 5837015  Рита
+       </div>
+      <input type="submit" name="submit_btn" value="Отправить">
+       <input type="submit" name="reset_btn" value="Отмена">
 </form>
 {% endblock %}
