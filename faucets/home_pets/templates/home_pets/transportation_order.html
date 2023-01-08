@@ -1,0 +1,35 @@
+{% extends 'home_pets/base.html' %}
+{% load static %}
+
+{% block title %}
+Забрать домой
+{% endblock %}
+
+{% block content %}
+    <form>
+  <h1>Автопомощь</h1>
+  <div></div>
+  <p>Заявка</p>
+  <div>Отправьте нам заявку о том, что готовы помочь. Когда нам будет необходима помощь в транспортировке, мы позвоним вам.</div>
+  <input type="text" name="name" placeholder="Фамилия и имя">
+  <div>
+  <input type="tel" name="phone" placeholder="Номер телефона">
+  <p class=correct >Обязательное поле для заполнения</p>
+   <p class=uncorrect >Вы не ввели номер телефона. Это поле обязательное.</p>
+  </div>
+
+   <div>Выберите вид автопомощи   </div>
+   <div>
+	   <label><input type="checkbox"/> Доставка еды, медикаментов и других небольших вещей</label>
+	   <label><input type="checkbox"/>Доставка сена или соломы, строительных материлов
+для будок и других крупногабаритных вещей </label>
+	   <label><input type="checkbox"/>Транспортировка небольших собак и котов</label>
+	   <label><input type="checkbox"/>Транспортировка больших собак</label>
+   </div>
+   <div>
+  <textarea name="message" placeholder="Замечания"></textarea>
+  </div>
+  <input type="submit" name="submit_btn" value="Отправить">
+   <input type="submit" name="reset_btn" value="Отмена">
+</form>
+{% endblock %}
