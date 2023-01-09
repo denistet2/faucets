@@ -18,8 +18,11 @@ class HomePet(models.Model):
     age_pets = models.IntegerField('Возвраст', help_text="Возраст")
     text_about_pets = models.TextField(max_length=200, help_text="Замечания")
 
-    def __str__(self):
-        return self.pets, self.name_pets, self.age_pets, self.foto, self.text_about_pets
+    # def __str__(self):
+    #     return self.pets, self.name_pets, self.age_pets, self.foto, self.text_about_pets
+    #
+    # # def __str__(self):
+    # #     return f'{[self.pets, self.name_pets, self.age_pets, self.foto, self.text_about_pets]!r}'
 
 
 class HelpList(models.Model):
