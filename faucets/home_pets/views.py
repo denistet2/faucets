@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import HomePet
+from django.shortcuts import render_to_response, RequestContext, redirect
+from .forms import TransportationOrderForm
 
 # Create your views here.
 
@@ -44,11 +46,39 @@ def tohome(request):
 def temporarily(request):
     return render(request, 'home_pets/temporarily.html')
 
-def transportation_order(request):
-    return render(request, 'home_pets/transportation_order.html')
+# def transportation_order(request):
+#     return render(request, 'home_pets/transportation_order.html')
 
+ # @login_required
+ def transportation_order(request):
+    # Get the context from the request.
+    # return render(request, 'home_pets/transportation_order.html')
+    context = RequestContext(request)
 
+    # A HTTP POST?
+    if request.method == 'POST':
+        form = TransportationOrderForm(request.POST)
 
+        # Have we been provided with a valid form?
+        if form.is_valid():
+            # Save the new category to the database.
+            task = form.save(commit=False)
+            # task.usern = request.user
+            task.save()
+
+             # Redirect to home (/)
+            return redirect('/')
+        else:
+            # The supplied form contained errors - just print them to the terminal.
+            print
+            form.errors
+    else:
+        # If the request was not a POST, display the form to enter details.
+        form = TransportationOrderForm()
+
+    # Bad form (or form details), no form supplied...
+    # Render the form with error messages (if any).
+    return render_to_response('home_pets/transportation_order.html', {'form': form}, context)
 def volunteering_help(request):
     return render(request, 'home_pets/volunteering_help.html')
 

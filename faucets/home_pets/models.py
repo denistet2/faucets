@@ -11,7 +11,7 @@ class HomePet(models.Model):
 
         ]
         pets = models.IntegerField('Категория', choices=PETS_VAR, help_text="Вид питомца" )
-        foto = models.ImageField()
+        foto = models.ImageField(upload_to='home_pets/static/images/photo_pets', blank=True)
         name_pets = models.CharField('Кличка', max_length=20, help_text="Кличка")
         age_pets = models.IntegerField('Возвраст', help_text="Возраст")
         text_about_pets = models.TextField(max_length=200, help_text="Замечания")
