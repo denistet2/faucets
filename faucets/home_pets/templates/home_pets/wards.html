@@ -12,7 +12,8 @@
 		  <div class="list carts podopechnih">
 			  {% for homepet in pets %}
 			      <div class="cart pitomec monic">
-				        <div class="foto pitomec">{{homepet.foto}}</div>
+<!--				        <div class="foto pitomec">{{homepet.foto}}</div>-->
+					    	<div><img class="foto" src="{{homepet.foto.image.url}}"></div>
 				            <div class="name pitomec">
 					             <h4 class="name-cart-pitomec monic">{{homepet.name_pets}}</h4>
 				            </div>
