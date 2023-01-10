@@ -678,43 +678,43 @@ border-radius: 0px;
 
 	}
 	/*заполнение карточки*/
-	.monic .foto {
+	.foto {
 	   
 		width: 335px;
 		height: 356px;
 		background-image:url('../images/monic.jpg');
 	}
-	.lunatic .foto {
-	   
+/*	.lunatic .foto {
+
 		width: 335px;
 		height: 356px;
 		background-image:url('../images/lunatic.jpg');
 	}
 	.gerda .foto {
-	   
+
 		width: 335px;
 		height: 356px;
 		background-image:url('../images/gerda.jpg');
 	}
 	.saki .foto {
-	   
+
 		width: 335px;
 		height: 356px;
 		background-image:url('../images/saki.jpg');
 	}
 	.monika .foto {
-	   
+
 		width: 335px;
 		height: 356px;
 		background-image:url('../images/monika.jpg');
 	}
 	.adreatino .foto {
-	   
+
 		width: 335px;
 		height: 356px;
 		background-image:url('../images/andreatino.jpg');
 	}
-	  /*------------------------------------------------------------------------------------*/
+	  ------------------------------------------------------------------------------------*/
 	  /*------------------------------------------------------------------------------------*/
 	  /*------------------------------------------------------------------------------------*/
 	/*------------------------------------------------------------------------------------*/  

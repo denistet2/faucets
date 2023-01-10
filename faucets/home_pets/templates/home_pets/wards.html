@@ -10,18 +10,20 @@
      <section class="list-podopechnih">
 		<h2 id="ower-pets">Наши подопечные</h2>
 		  <div class="list carts podopechnih">
-			  {% for p in pets %}
+			  {% for homepet in pets %}
 			      <div class="cart pitomec monic">
-				        <div class="foto pitomec"></div>
+<!--				        <div class="foto pitomec">{{homepet.foto}}</div>-->
+					    	<div><img class="foto" src="{{homepet.foto.url}}"/></div>
+<!--					  <img src="{{ object.img.url }}" />-->
 				            <div class="name pitomec">
-					             <h4 class="name-cart-pitomec monic">{{pets.name_pets}}</h4>
+					             <h4 class="name-cart-pitomec monic">{{homepet.name_pets}}</h4>
 				            </div>
 
 				        <div class="line carts"></div>
 
-				        <p class="about pitomec monic">{{pets.age_pets}}</p>
+				        <p class="about pitomec monic">{{homepet.age_pets}}</p>
 
-				        <p class="more about pitomec monic">{{pets.text_about_pets}}</p>
+				        <p class="more about pitomec monic">{{homepet.text_about_pets}}</p>
 				        <div class="key-block ">
 					           <a href="{% url 'tohome' %}" >
 							     <button class="key-top" onclick=''>Забрать домой</button>
