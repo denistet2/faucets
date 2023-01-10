@@ -53,7 +53,7 @@ class OrderPetTemporarity(models.Model):
     pets = models.CharField(max_length=20, help_text="Питомец")
     data_order_pet = models.DateTimeField(verbose_name="Дата")
     start_time = models.DateTimeField(verbose_name="Начало")
-    end_tame = models.DateTimeField(verbose_name="Окончание")
+    end_time = models.DateTimeField(verbose_name="Окончание")
     message = models.TextField(max_length=100, help_text="Замечания")
 
 

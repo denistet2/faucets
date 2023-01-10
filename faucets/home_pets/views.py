@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import HomePet
-from .forms import *
+from .forms import AdOrderPetTemporarity
 
 # Create your views here.
 
@@ -46,14 +46,18 @@ def temporarily(request):
     if request.method == 'POST':
         form = AdOrderPetTemporarity(request.POST)
         if form.is_valid():
-            try:
-                form.save()
-                return redirect('index')
-            except:
-                form.add_error(None, 'Ошибка добавления заказа')
+                try:
+                    form.save()
+                        return redirect('index')
+                except:
+            form.add_error(None, 'Ошибка добавления заказа')
     else:
-        form = AdOrderPetTemporarity
-    return render(request, 'home_pets/temporarily.html')
+        form = AdOrderPetTemporarity()
+
+        data = {
+            'form':form
+        }
+        return render(request, 'home_pets/temporarily.html', data)
 
 
 def transportation_order(request):
