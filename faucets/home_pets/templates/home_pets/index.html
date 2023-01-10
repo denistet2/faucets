@@ -1,0 +1,25 @@
+{% extends 'home_pets/base.html' %}
+{% load static %}
+
+{% block title %}
+Главная
+{% endblock %}
+
+{% block content %}
+
+		<section class="top-page1">
+		<img class="top-foto" src="{% static 'home_pets/images/dog-1.png' %}">
+
+		<h1 class="element0">СПАСИ ЖИЗНЬ</h1>
+			<p class="element1">Благотворительное общественное объединение защиты животных</p>
+			<p class="element2">Наша цель: помощь бездомным животных. Мы поддерживаем хвостиков, которые оказались в
+				пункте отлова и временного содержания в Гродно. </p>
+				<div class="element-text" >
+			<p class="element3">У животных, находящихся в пункте отлова и временного содержания бродячих животных, есть
+					всего несколько дней до усыпления... </p>
+			<a class="key-top-menu5" href="help">Хочу помочь</a>
+			<img class="pitomec1" src="{% static 'home_pets/images/cat-1.png' %}" alt="рыжий кот">
+			</div>
+
+		</section>
+{% endblock %}

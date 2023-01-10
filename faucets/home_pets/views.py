@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import HomePet
+from .forms import *
 
 # Create your views here.
 
@@ -42,7 +43,18 @@ def tohome(request):
 
 
 def temporarily(request):
+    if request.method == 'POST':
+        form = AdOrderPetTemporarity(request.POST)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('index')
+            except:
+                form.add_error(None, 'Ошибка добавления заказа')
+    else:
+        form = AdOrderPetTemporarity
     return render(request, 'home_pets/temporarily.html')
+
 
 def transportation_order(request):
     return render(request, 'home_pets/transportation_order.html')
