@@ -1456,3 +1456,8 @@ color: #B3B3B3;
 margin-bottom: 16px;
 }
 
+/* ---формы ------*/
+.order_form {
+margin: 50px auto;
+max-width:500px;
+}
