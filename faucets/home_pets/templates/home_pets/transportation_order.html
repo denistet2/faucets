@@ -6,8 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<form>
-   <div class="order_form">
+<div class="order_form">
        <div>
              <h1>Автопомощь</h1>
        </div>
@@ -17,33 +16,8 @@
        <div>
            <p>Отправьте нам заявку о том, что готовы помочь. Когда нам будет необходима помощь в транспортировке, мы позвоним вам.</p>
        </div>
-       <div>
-           <input type="text" name="name" placeholder="Фамилия и имя">
-       </div>
-       <div>
-           <input type="tel" name="phone" placeholder="Номер телефона">
-             <p class=correct >Обязательное поле для заполнения</p>
-             <p class=uncorrect >Вы не ввели номер телефона. Это поле обязательное.</p>
-       </div>
-
-       <div>
-           <p>Выберите вид автопомощи</p>
-       </div>
-       <div>
-	        <input type="checkbox"/><label>Доставка еды, медикаментов и других небольших вещей</label>
-       </div>
-       <div>
-	        <input type="checkbox"/><label>Доставка сена или соломы, строительных материлов для будок и других крупногабаритных вещей </label>
-       </div>
-       <div>
-            <input type="checkbox"/><label>Транспортировка небольших собак и котов</label>
-       </div>
-       <div>
-            <input type="checkbox"/><label>Транспортировка больших собак</label>
-       </div>
-       <div>
-            <textarea name="message" placeholder="Замечания"></textarea>
-       </div>
+<form method="post">{% csrf_token %}
+        {{ form.as_p }}
        <div>
             <input type="submit" name="submit_btn" value="Отправить">
             <input type="submit" name="reset_btn" value="Отмена">

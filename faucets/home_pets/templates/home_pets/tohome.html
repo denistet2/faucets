@@ -6,26 +6,20 @@
 {% endblock %}
 
 {% block content %}
-    <form>
-       <div class="order_form">
-      <div>Забрать домой</div>
-      <div></div>
+<div class="order_form">
+
+      <h1>Забрать домой</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
       <div>Оставьте информацию о себе. Мы позвоним вам и<br> договоримся, когда вы сможете забрать себе<br >питомца.</div>
-      <input type="text" name="name" placeholder="Фамилия и имя">
-      <div>
-      <input type="tel" name="phone" placeholder="Номер телефона">
-      <p>Обязательное поле для заполнения</p>
-      </div>
-      <div>
-      <textarea name="message" placeholder="Замечания"></textarea>
-      </div>
+          <input type="submit" name="submit_btn" value="Отправить">
+          <input type="submit" name="reset_btn" value="Отмена">
+       </div>
        <div>Если у вас есть вопросы, можете позвонить нам:
           <br>+375 (33) 6237879  Лена
           <br>+375 (29) 7877791  Ольга
           <br>+375 (29) 5837015  Рита
        </div>
-      <input type="submit" name="submit_btn" value="Отправить">
-       <input type="submit" name="reset_btn" value="Отмена">
-       </div>
+
     </form>
 {% endblock %}

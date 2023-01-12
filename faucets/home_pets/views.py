@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import HomePet
-from .forms import AdOrderPetTemporarity
+from django.views.generic.edit import CreateView
+from .models import *
+from .forms import *
 
 # Create your views here.
 
@@ -39,34 +40,47 @@ def wards(request):
 
 
 def tohome(request):
-    return render(request, 'home_pets/tohome.html')
+    if request.method == "POST":
+        form = AdToHomeForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = AdToHomeForm()
+
+    return render(request, 'home_pets/tohome.html',{'form': form})
 
 
 def temporarily(request):
     if request.method == 'POST':
-        form = AdOrderPetTemporarity(request.POST)
+        form = AdOrderPetTemporarytyForm(request.POST)
         if form.is_valid():
-                try:
-                    form.save()
-                        return redirect('index')
-                except:
-            form.add_error(None, 'Ошибка добавления заказа')
+            form.save()
     else:
-        form = AdOrderPetTemporarity()
+        form = AdOrderPetTemporarytyForm()
 
-        data = {
-            'form':form
-        }
-        return render(request, 'home_pets/temporarily.html', data)
+    return render(request, 'home_pets/temporarily.html',{'form': form})
 
 
 def transportation_order(request):
-    return render(request, 'home_pets/transportation_order.html')
+    if request.method == 'POST':
+        form = AdTransportHelpForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = AdTransportHelpForm()
+
+    return render(request, 'home_pets/transportation_order.html',{'form': form})
 
 
 
 def volunteering_help(request):
-    return render(request, 'home_pets/volunteering_help.html')
+    if request.method == 'POST':
+        form = AdVolOrderForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = AdVolOrderForm()
+    return render(request, 'home_pets/volunteering_help.html',{'form': form})
 
 
 def financial_support(request):
