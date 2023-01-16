@@ -1446,14 +1446,17 @@ footer ul.down-menu li {
 		color: #474747;
 }
 footer div.copyright {
-	margin: 0 auto;
+display:flex;
+flex-direction: column;
+align-items:center;
+	/*----margin: 0 auto;--*/
 font-family: Gilroy;
 font-style: normal;
 font-weight: normal;
 font-size: 0.75em;
 line-height: 140%;
 color: #B3B3B3;
-margin-bottom: 16px;
+/*----margin-bottom: 16px;---*/
 }
 
 /*-----order--------*/

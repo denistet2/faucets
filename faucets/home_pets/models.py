@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from django.core.validators import RegexValidator
 
 
 
@@ -31,7 +32,9 @@ class OrderHelp(models.Model):
     name = models.CharField(max_length=20, help_text="Имя")
     help_type = models.CharField(max_length=10)
     email = models.EmailField()
-    phone_number = models.CharField(max_length=10)
+    phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
+    phone = models.CharField(validators=[phoneNumberRegex], max_length=16, unique=True)
+
 
 
 class News(models.Model):
@@ -42,7 +45,9 @@ class News(models.Model):
 
 class OrderPet(models.Model):
     name = models.CharField(max_length=30, help_text="Фамилия и имя")
-    phone = models.CharField(max_length=10, help_text="Номер телефона")
+    # phone = models.CharField(max_length=10, help_text="Номер телефона")
+    phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
+    phone = models.CharField(validators=[phoneNumberRegex], max_length=16, unique=True)
     pets = models.CharField(max_length=20, help_text="Питомец")
     message = models.TextField(max_length=100, help_text="Замечания")
     data_order_pet = models.DateTimeField(verbose_name="Дата")
@@ -50,7 +55,9 @@ class OrderPet(models.Model):
 
 class OrderPetTemporarity(models.Model):
     name = models.CharField(max_length=30, help_text="Фамилия и имя")
-    phone = models.CharField(max_length=10, help_text="Номер телефона")
+    # phone = models.CharField(max_length=10, help_text="Номер телефона")
+    phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
+    phone = models.CharField(validators=[phoneNumberRegex], max_length=16, unique=True)
     pets = models.CharField(max_length=20, help_text="Питомец")
     data_order_pet = models.DateTimeField(verbose_name="Дата")
     start_time = models.DateTimeField(verbose_name="Начало")
@@ -68,7 +75,9 @@ class TransportationOrder(models.Model):
 
     ]
     driver_name = models.CharField(max_length=30, help_text="Инициалы")
-    phone_numb = models.CharField(max_length=10, help_text="Телефон")
+    # phone_numb = models.CharField(max_length=10, help_text="Телефон")
+    phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
+    phone = models.CharField(validators=[phoneNumberRegex], max_length=16, unique=True)
     transport_type = models.PositiveSmallIntegerField(null=True, choices=TRANSPORT_VAR, editable=False)
     data_order_pet = models.DateTimeField(verbose_name="Дата")
     start_time = models.DateTimeField(verbose_name="Начало")
@@ -83,7 +92,9 @@ class VolOrder(models.Model):
      (2, 'Готов помогать иногда.Хочу выбрать удобное для меня время')
     ]
     name_vol = models.CharField(max_length=30, help_text="Фамилия и имя")
-    phone = models.CharField(max_length=10, help_text="Номер телефона")
+    # phone = models.CharField(max_length=10, help_text="Номер телефона")
+    phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
+    phone = models.CharField(validators=[phoneNumberRegex], max_length=16, unique=True)
     vol_type = models.PositiveSmallIntegerField(null=True, verbose_name='vol_type', editable=False, choices=VOL_VAR)
     data_order_pet = models.DateTimeField(verbose_name="Дата")
     start_time = models.DateTimeField(verbose_name="Начало")
