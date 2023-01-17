@@ -1,0 +1,27 @@
+{% extends 'home_pets/base.html' %}
+{% load static %}
+
+{% block title %}
+Корма и медикаменты
+{% endblock %}
+
+{% block content %}
+<div class="order_form">
+       <div>
+             <h1>Помочь</h1>
+       </div>
+       <div>
+            <p>Заявка</p>
+       </div>
+       <div>
+           <p>Отправьте нам заявку о том, что готовы помочь. Когда нам будет необходима помощь в транспортировке, мы позвоним вам.</p>
+       </div>
+<form method="post">{% csrf_token %}
+        {{ form.as_p }}
+       <div>
+            <input type="submit" name="submit_btn" value="Отправить">
+            <input type="submit" name="reset_btn" value="Отмена">
+       </div>
+   </div>
+</form>
+{% endblock %}

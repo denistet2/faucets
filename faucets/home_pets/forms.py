@@ -28,3 +28,9 @@ class AdVolOrderForm(forms.ModelForm):
     class Meta:
         model = VolOrder
         fields = '__all__'
+
+
+class AdFoodMedicinesHelpForm(forms.ModelForm):
+    class Meta:
+        model = MedicamentosAdd
+        fields = '__all__'

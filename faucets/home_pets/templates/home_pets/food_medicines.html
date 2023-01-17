@@ -9,7 +9,7 @@
     <section class="help">
 			<div class="help-page-top" id="things">
 				<div class="left-line"></div>
-				<img class="help-logo" src="./images/help-logo.svg">
+				<img class="help-logo" src="{% static 'home_pets/images/help-logo.svg' %}">
 				<div class="right-line"></div>
 
 			</div>
@@ -54,7 +54,7 @@
 				</ul>
 
 			</div>
-			<p><a class="help-key" href="#">Кому и куда передать?</a></p>
+			<p><a class="help-key" href="{% url 'food_medicines_help' %}">Кому и куда передать?</a></p>
 			</div>
 	</section>
 {% endblock %}

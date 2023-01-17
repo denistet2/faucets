@@ -77,8 +77,8 @@ class TransportationOrder(models.Model):
     driver_name = models.CharField('Перевозчик', max_length=30, help_text="Инициалы")
     # phone_numb = models.CharField(max_length=10, help_text="Телефон")
     phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
-    phone = models.CharField('Телефон', validators=[phoneNumberRegex], max_length=16, unique=True)
-    transport_type = models.PositiveSmallIntegerField(null=True, choices=TRANSPORT_VAR, editable=False)
+    phone = models.CharField('Телефон', validators=[phoneNumberRegex], max_length=16)
+    transport_type = models.IntegerField('Вид перевозки', null=True, choices=TRANSPORT_VAR)
     order_data = models.DateTimeField(verbose_name="Дата")
     start_point = models.CharField(max_length=30,verbose_name="Погрузить")
     end_point = models.CharField(max_length=30,verbose_name="Выгрузить")
@@ -95,7 +95,7 @@ class VolOrder(models.Model):
     # phone = models.CharField(max_length=10, help_text="Номер телефона")
     phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
     phone = models.CharField(validators=[phoneNumberRegex], max_length=16, unique=True)
-    vol_type = models.PositiveSmallIntegerField(null=True, verbose_name='vol_type', editable=False, choices=VOL_VAR)
+    vol_type = models.IntegerField(null=True, verbose_name='vol_type', choices=VOL_VAR)
     data_order = models.DateTimeField(verbose_name="Дата")
     start_time = models.DateTimeField(verbose_name="Начало")
     end_time = models.DateTimeField(verbose_name="Окончание")
@@ -116,7 +116,7 @@ class MedicamentosAdd(models.Model):
         (10, 'препараты от блох,клещей'),
         (11, 'для заживления ран')
     ]
-    med_type = models.PositiveSmallIntegerField(null=True, verbose_name='vol_type', editable=False, choices=MEDICAMENTOS_VAR)
+    med_type = models.IntegerField('Препарат', choices=MEDICAMENTOS_VAR)
     med_weight = models.IntegerField()
     name = models.CharField('Волонтер',max_length=30, help_text="Фамилия и имя")
     phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
@@ -132,7 +132,7 @@ class ForageAdd(models.Model):
         (4, 'Фарш для собак')
 
     ]
-    forage_type = models.PositiveSmallIntegerField(null=True, verbose_name='vol_type', editable=False, choices=FORAGE_VAR)
+    forage_type = models.IntegerField(null=True, verbose_name='Вид корма', editable=False, choices=FORAGE_VAR)
     forage_weight = models.IntegerField()
     name = models.CharField('Волонтер',max_length=30, help_text="Фамилия и имя")
     phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
@@ -148,9 +148,10 @@ class ItemAdd(models.Model):
         (5, 'Будки')
 
     ]
-    item_type = models.PositiveSmallIntegerField(null=True, verbose_name='vol_type', editable=False, choices=ITEM_VAR)
+    item_type = models.IntegerField(null=True, verbose_name='Категория', choices=ITEM_VAR)
     item_qty = models.IntegerField()
     which_item = models.CharField('Вещь', max_length=100, help_text="Замечания")
     name = models.CharField('Волонтер',max_length=30, help_text="Фамилия и имя")
     phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
     phone = models.CharField('Телефон', validators=[phoneNumberRegex], max_length=16, unique=True)
+

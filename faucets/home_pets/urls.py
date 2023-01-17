@@ -17,5 +17,5 @@ urlpatterns = [
     path('volunteering_help/', volunteering_help, name='volunteering_help'),
     path('financial_support/', financial_support, name='financial_support'),
     path('food_medicines/', food_medicines, name='food_medicines'),
-
+    path('food_medicines_help/', food_medicines_help, name='food_medicines_help'),
 ]

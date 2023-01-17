@@ -90,3 +90,13 @@ def financial_support(request):
 def food_medicines(request):
     return render(request, 'home_pets/food_medicines.html')
 
+
+def food_medicines_help(request):
+    if request.method == 'POST':
+        form = AdFoodMedicinesHelpForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = AdFoodMedicinesHelpForm()
+    return render(request, 'home_pets/food_medicines_help.html',{'form': form})
+
