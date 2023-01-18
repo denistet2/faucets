@@ -132,7 +132,7 @@ class ForageAdd(models.Model):
         (4, 'Фарш для собак')
 
     ]
-    forage_type = models.IntegerField(null=True, verbose_name='Вид корма', editable=False, choices=FORAGE_VAR)
+    forage_type = models.IntegerField(null=True, verbose_name='Вид корма', choices=FORAGE_VAR)
     forage_weight = models.IntegerField()
     name = models.CharField('Волонтер',max_length=30, help_text="Фамилия и имя")
     phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
