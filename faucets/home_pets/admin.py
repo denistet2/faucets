@@ -27,6 +27,9 @@ class MedicamentosAddAdmin(admin.ModelAdmin):
     list_display = ('med_type','med_weight','name','phone')
 admin.site.register(MedicamentosAdd, MedicamentosAddAdmin)
 
-admin.site.register(ForageAdd)
+
+class ForageAddAdmin(admin.ModelAdmin):
+    list_display = ('forage_type','forage_weight','name','phone')
+admin.site.register(ForageAdd, ForageAddAdmin)
 admin.site.register(ItemAdd)
 # admin.site.register(Stock)
