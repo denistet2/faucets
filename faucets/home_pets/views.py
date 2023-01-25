@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from django.views.generic import ListView
@@ -20,7 +21,11 @@ def contacts(request):
 
 
 def news(request):
-    return render(request, 'home_pets/news.html')
+    news_list = News.objects.all()
+    paginator = Paginator(news_list, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'home_pets/news.html',{ 'page_obj' : page_obj})
 
 
 def volunteering(request):
@@ -34,11 +39,16 @@ def transportation(request):
 def benefit(request):
     return render(request, 'home_pets/benefit.html')
 
+class PetsHome(ListView):
+    paginate_by = 3
+    model = HomePet
+    template_name = 'home_pets/wards.html'
+    context_object_name = 'pets'
 
-def wards(request):
-
-    pets = HomePet.objects.all()
-    return render(request, 'home_pets/wards.html',{'pets': pets})
+# def wards(request):
+#
+#     pets = HomePet.objects.all()
+#     return render(request, 'home_pets/wards.html',{'pets': pets})
 
 
 def tohome(request):
