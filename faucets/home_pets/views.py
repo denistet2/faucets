@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
+from django.views.generic import ListView
 from .models import *
 from .forms import *
 
@@ -35,6 +36,7 @@ def benefit(request):
 
 
 def wards(request):
+
     pets = HomePet.objects.all()
     return render(request, 'home_pets/wards.html',{'pets': pets})
 
