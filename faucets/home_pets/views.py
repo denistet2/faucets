@@ -1,6 +1,7 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import  CreateView
 from django.views.generic import ListView
 from .models import *
 from .forms import *
@@ -112,3 +113,17 @@ def food_medicines_help(request):
         form = AdFoodMedicinesHelpForm()
     return render(request, 'home_pets/food_medicines_help.html',{'form': form})
 
+
+
+
+class RegisterUser(CreateView):
+    form_class = UserCreationForm
+    template_name = 'faucet/register.html'
+    success_url = revers_lazy('login')
+
+    def get_context_data(self, object_list = None, **kwargs):
+        contex = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title='Регистрация')
+        return dict(list(context.items()) + list(c_def.items()))
+
+    # https: // www.youtube.com / watch?v = QK4qbVyY7oU & list = PLA0M1Bcd0w8xO_39zZll2u1lz_Q - Mwn1F & index = 19
