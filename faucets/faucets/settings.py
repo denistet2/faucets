@@ -76,15 +76,24 @@ WSGI_APPLICATION = 'faucets.wsgi.application'
 
 # инструкция с официального сайта djangoproject.com
 # settings.py
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'OPTIONS': {
+#             'read_default_file': '/path/to/my.cnf',
+#         },
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': '/path/to/my.cnf',
-        },
+        'NAME': 'faucets',
+        'USER': 'root',
+        'PASSWORD': 'sxEI6rqc',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
