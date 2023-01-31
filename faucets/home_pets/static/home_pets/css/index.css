@@ -46,7 +46,6 @@ align-items: center;
 }
 a {
 	text-decoration: none;
-	margin-right: 30px;
 	color: #242424;
 }
  .menu li{padding-right: 56px;
@@ -367,6 +366,8 @@ flex-direction: column;
 justify-content: space-between;
 align-items: center;
 }
+
+
 li p{
 width: 166px;
 height: 66px;
