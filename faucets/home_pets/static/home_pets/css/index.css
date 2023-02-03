@@ -3,7 +3,7 @@
 	font-family: Gilroy;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 4.5em;
+	font-size: 72px;
 	font-display: swap;
 	src: url('../fonts/Gilroy-Regular.woff') format('woff2'),
 	url('../fonts/Gilroy-Regular.woff') format('woff');
@@ -34,19 +34,34 @@ justify-content: start;
 	left: calc(50% - 100px);
 	z-index: -1;
 }
-nav .menu {
-  display:flex;
-  flex-direction:row;
+nav{
+	max-width: 1049px;
+	margin:0 auto;
+	padding-top: 39px;
+height: 49px;
+display: flex;
+flex-direction: row;
+justify-content:flex-start;
+align-items: center;
 }
-nav .top-menu {
+a {
+	text-decoration: none;
+	margin-right: 30px;
+	color: #242424;
+}
+ .menu li{padding-right: 56px;
+
+
+	}
+	ul.top-menu{
 		padding: 0;
-        width: 100%;
-        font-family: Gilroy;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        list-style:none;
+width: 100%;
+font-family: Gilroy;
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+align-items: center;
+list-style:none;
 }
 div.social {
 	margin: 0 auto;
@@ -55,7 +70,16 @@ div.social {
 	justify-content: flex-start;
 	align-items: center;
 }
-
+.top-menu ul a {
+	font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #242424;
+padding-right: 28px;
+display: block;
+}
 /*как помочь*/
 .key-top-menu1{
 width: 90px;
