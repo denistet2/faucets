@@ -1,10 +1,10 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DataMixin
 from django.views.generic import ListView
 from .models import *
 from .forms import *
-
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 
 
@@ -20,12 +20,12 @@ def contacts(request):
     return render(request, 'home_pets/contacts.html')
 
 
-def news(request):
-    news_list = News.objects.all()
-    paginator = Paginator(news_list, 3)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    return render(request, 'home_pets/news.html',{ 'page_obj' : page_obj})
+class News(ListView):
+    paginate_by = 3
+    model = News
+    template_name = 'home_pets/news.html'
+    context_object_name = 'addnews'
+    # return render(request, 'home_pets/news.html')
 
 
 def volunteering(request):
@@ -112,3 +112,17 @@ def food_medicines_help(request):
         form = AdFoodMedicinesHelpForm()
     return render(request, 'home_pets/food_medicines_help.html',{'form': form})
 
+
+class UserCreatingForm:
+    pass
+
+
+class RegisterUser(DataMixin, CreateView):
+    form_class = UserCreatingForm
+    template_name = 'home_pets/registrations.html'
+    # success_url = revers_lazy('login')
+
+    def get_context_data(self,object_list=None, **kwargs):
+        context = super().get_context_data()
+        c_def = self.get_user_context(title="Регистрация")
+        return dict(list(context.items()+list(c_def.items)))

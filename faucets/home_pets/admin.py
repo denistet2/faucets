@@ -22,6 +22,9 @@ class VolOrderAdmin(admin.ModelAdmin):
     list_display = ('name_vol','phone','vol_type','data_order','start_time','end_time','message')
 admin.site.register(VolOrder,VolOrderAdmin)
 
+class NewsAdmin(admin.ModelAdmin):
+    list_display = ('foto','text_news','data')
+admin.site.register(News, NewsAdmin)
 
 class MedicamentosAddAdmin(admin.ModelAdmin):
     list_display = ('med_type','med_weight','name','phone')

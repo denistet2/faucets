@@ -41,24 +41,24 @@ nav{
 height: 49px;
 display: flex;
 flex-direction: row;
-justify-content:flex-start;
+justify-content:space-around;
 align-items: center;
 }
 a {
 	text-decoration: none;
 	color: #242424;
 }
- .menu li{padding-right: 56px;
+ .menu li{padding-right: 46px;
 	
 	
 	}
-	ul.top-menu{
+	nav.menu{
 		padding: 0;
 width: 100%;
 font-family: Gilroy;
 display: flex;
 flex-direction: row;
-justify-content: flex-start;
+justify-content: space-between;
 align-items: center;
 list-style:none;
 }

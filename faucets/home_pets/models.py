@@ -38,8 +38,8 @@ class OrderHelp(models.Model):
 
 
 class News(models.Model):
-    pets = models.CharField(max_length=20, help_text="Enter field documentation")
-    text_news = models.TextField(max_length=20, help_text="Enter field documentation")
+    foto = models.ImageField(upload_to='images', blank=True, verbose_name='Фото')
+    text_news = models.TextField(max_length=250, help_text="Enter field documentation")
     data = models.DateTimeField(blank=True, verbose_name="Дата")
 
 
@@ -154,4 +154,5 @@ class ItemAdd(models.Model):
     name = models.CharField('Волонтер',max_length=30, help_text="Фамилия и имя")
     phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
     phone = models.CharField('Телефон', validators=[phoneNumberRegex], max_length=16, unique=True)
+
 

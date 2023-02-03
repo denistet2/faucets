@@ -12,9 +12,7 @@
 		  <div class="list carts podopechnih">
 			  {% for homepet in pets %}
 			      <div class="cart pitomec monic">
-<!--				        <div class="foto pitomec">{{homepet.foto}}</div>-->
 					    	<div><img class="foto" src="{{homepet.foto.url}}"/></div>
-<!--					  <img src="{{ object.img.url }}" />-->
 				            <div class="name pitomec">
 					             <h4 class="name-cart-pitomec monic">{{homepet.name_pets}}</h4>
 				            </div>
@@ -53,6 +51,15 @@
 
 <!--		{% endif %}-->
 		</div>
+<nav class="menu">
+		<ul class="top-menu">
+			{% for p in paginator.page_range %}
+			<li class="page-num">
+				<a href="?page={{p}}">{{p}}</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</nav>
 		    <div class="down-pitomec-list">
 			    <p>Помочь быстрее пристроить хвостиков можно путем размещения наших постов у себя в соц сетях. Переходите на
 				наши странички.</p>
