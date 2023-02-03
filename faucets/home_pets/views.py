@@ -24,7 +24,7 @@ class News(ListView):
     paginate_by = 3
     model = News
     template_name = 'home_pets/news.html'
-    context_object_name = 'addnews'
+    context_object_name = 'add_news'
     # return render(request, 'home_pets/news.html')
 
 
@@ -44,6 +44,7 @@ class PetsHome(ListView):
     model = HomePet
     template_name = 'home_pets/wards.html'
     context_object_name = 'pets'
+    extra_context = {'title':'Подопечные'}
 
 # def wards(request):
 #
@@ -118,7 +119,7 @@ class UserCreatingForm:
 
 
 class RegisterUser(DataMixin, CreateView):
-    form_class = UserCreatingForm
+    form_class = UserCreationForm
     template_name = 'home_pets/registrations.html'
     # success_url = revers_lazy('login')
 

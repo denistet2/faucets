@@ -17,6 +17,6 @@ urlpatterns = [
     path('volunteering_help/', volunteering_help, name='volunteering_help'),
     path('financial_support/', financial_support, name='financial_support'),
     path('food_medicines/', food_medicines, name='food_medicines'),
-    # path('login/', login, name='login'),
+    path('login/', RegisterUser.as_view(), name='login'),
     path('register/', RegisterUser.as_view(), name='registrations'),
 ]
