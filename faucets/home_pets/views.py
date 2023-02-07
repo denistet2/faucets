@@ -1,7 +1,9 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView, DataMixin
+from django.template.context_processors import csrf
+from django.views.generic.edit import CreateView, DataMixin, FormView
 from django.views.generic import ListView
+from django.contrib.auth.views import LoginView
 from .models import *
 from .forms import *
 from django.contrib.auth.forms import UserCreationForm
@@ -114,16 +116,20 @@ def food_medicines_help(request):
     return render(request, 'home_pets/food_medicines_help.html',{'form': form})
 
 
-class UserCreatingForm:
-    pass
+def registrations(request):
+    args = {}
+    args.update(csrf(request))
+    args['form'] = UserCreationForm()
+    if request.POST:
+        newuser_form = UserCreationForm(request.POST)
+        if newuser_form.is_valid():
+            newuser_form.save()
+            newuser = auth.authenticate(username=newuser_form.cleaned_data['username'],password=newuser_form.cleaned_data['password'])
+            auth.login(request,newuser)
+            return redirect('/index')
+        else:
+            args['form'] = newuser_form
+
+    return render(request, 'home_pets/registrations.html', args)
 
 
-class RegisterUser(DataMixin, CreateView):
-    form_class = UserCreationForm
-    template_name = 'home_pets/registrations.html'
-    # success_url = revers_lazy('login')
-
-    def get_context_data(self,object_list=None, **kwargs):
-        context = super().get_context_data()
-        c_def = self.get_user_context(title="Регистрация")
-        return dict(list(context.items()+list(c_def.items)))

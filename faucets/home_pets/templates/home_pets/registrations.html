@@ -9,13 +9,14 @@
 <div class="order_form">
 
        <div>
-            <p>Регистрация</p>
+            <h1>Регистрация</h1>
        </div>
 
-        <form method="post">{% csrf_token %}
-                             {{ form.as_p }}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
        <div>
-           <button type="submit">"Регистрация"</button>
+           <button type="submit">Регистрация</button>
 
        </div>
 

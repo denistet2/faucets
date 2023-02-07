@@ -156,3 +156,5 @@ class ItemAdd(models.Model):
     phone = models.CharField('Телефон', validators=[phoneNumberRegex], max_length=16, unique=True)
 
 
+
+
