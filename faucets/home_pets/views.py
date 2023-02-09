@@ -1,14 +1,44 @@
-from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
 from django.views.generic.edit import CreateView, DataMixin, FormView
 from django.views.generic import ListView
-from django.contrib.auth.views import LoginView
+from django.contrib.auth import authenticate, login, logout
 from .models import *
 from .forms import *
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 # Create your views here.
 
+def register(request):
+    if request.method == 'POST':
+        form = RegisterUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.save()
+            login(request, user)
+            messages.success(request, 'Вы прошли регистрацию')
+            return redirect('index')
+        else:
+            messages.error(request, 'Ошибка валидации')
+    else:
+        form = RegisterUserForm()
+    return render(request, 'home_pets/register.html', {'form':form})
+
+def user_login(request):
+    if request.method == 'POST':
+        form = login_UserForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('benefit')
+    else:
+        form = login_UserForm()
+    return render(request, 'home_pets/login.html', {'form':form})
+
+
+def user_logout(request):
+    logout(request)
+    return redirect('login')
 
 def index(request):
     return render(request, 'home_pets/index.html')
@@ -27,7 +57,6 @@ class News(ListView):
     model = News
     template_name = 'home_pets/news.html'
     context_object_name = 'add_news'
-    # return render(request, 'home_pets/news.html')
 
 
 def volunteering(request):
@@ -67,11 +96,11 @@ def tohome(request):
 
 def temporarily(request):
     if request.method == 'POST':
-        form = AdOrderPetTemporarytyForm(request.POST)
+        form = AdOrderPetTemporarityForm(request.POST)
         if form.is_valid():
             form.save()
     else:
-        form = AdOrderPetTemporarytyForm()
+        form = AdOrderPetTemporarityForm()
 
     return render(request, 'home_pets/temporarily.html',{'form': form})
 
@@ -114,22 +143,5 @@ def food_medicines_help(request):
     else:
         form = AdFoodMedicinesHelpForm()
     return render(request, 'home_pets/food_medicines_help.html',{'form': form})
-
-
-def registrations(request):
-    args = {}
-    args.update(csrf(request))
-    args['form'] = UserCreationForm()
-    if request.POST:
-        newuser_form = UserCreationForm(request.POST)
-        if newuser_form.is_valid():
-            newuser_form.save()
-            newuser = auth.authenticate(username=newuser_form.cleaned_data['username'],password=newuser_form.cleaned_data['password'])
-            auth.login(request,newuser)
-            return redirect('/index')
-        else:
-            args['form'] = newuser_form
-
-    return render(request, 'home_pets/registrations.html', args)
 
 
