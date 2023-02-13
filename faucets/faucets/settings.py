@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home_pets.apps.HomePetsConfig',
-    'django.contrib.sites',
+    # 'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -115,7 +115,6 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = f'{BASE_DIR}/home_pets/static'
@@ -128,23 +127,9 @@ STATICFILES_FINDERS = (
 
 )
 
-# Base url to serve media files
-# Base url to serve media files
-# MEDIA_URL = '/media/'
-#
-# # Path where media is stored
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_ROOT = f'{BASE_DIR}/home_pets/media'
 MEDIA_URL = '/media/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#
-# try:
-#     from .local_settings import *
-#
-# except ImportError:
-#     from .prod_settings import *

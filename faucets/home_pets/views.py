@@ -91,7 +91,7 @@ def tohome(request):
     else:
         form = AdToHomeForm()
 
-    return render(request, 'home_pets/tohome.html',{'form': form})
+    return render(request, 'home_pets/to_home.html',{'form': form})
 
 
 def temporarily(request):
