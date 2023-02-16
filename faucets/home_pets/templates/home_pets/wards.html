@@ -23,7 +23,7 @@
 
 				        <p class="more about pitomec monic">{{homepet.text_about_pets}}</p>
 				        <div class="key-block ">
-					           <a href="{% url 'tohome' %}" >
+					           <a href="{% url 'to_home' %}" >
 							     <button class="key-top" onclick=''>Забрать домой</button>
 							   </a>
 							   <a href="{% url 'temporarily' %}" >
@@ -34,28 +34,18 @@
 			  {% endfor %}
 		  </div>
 		 <div class="key-see-all">
-<!--		{% if page_obj.has_other_page %}-->
 
-		 {% for p in page_obj.paginator.page_range %}
-<!--		 	{% if p.number == p %}-->
-			 <a href="?page={{p}}">стр.{{ p }}</a>
-<!--		 	{% else %}-->
-<!--			 <a href="?page={{p}}">Посмотреть всех({{ p }})</a>-->
-<!--		 	{% endif %}-->
-
-<!--			 {% if page_obj.has_next %}-->
-<!--			 <a href="?page={{page_obj.next_page_number}}">Посмотреть всех({{ p }})</a>-->
-<!--		 	{% endif %}-->
-		 {% endfor %}
+<!--		 {% for p in page_obj.paginator.page_range %}-->
+<!--			 <a href="?page={{p}}">стр.{{ p }}</a>-->
+<!--		 {% endfor %}-->
 
 
-<!--		{% endif %}-->
 		</div>
 <nav class="menu">
 		<ul class="top-menu">
 			{% for p in paginator.page_range %}
 			<li class="page-num">
-				<a href="?page={{p}}">{{p}}</a>
+				<a href="?page={{p}}" class="cdp_i">{{p}}</a>
 			</li>
 			{% endfor %}
 		</ul>

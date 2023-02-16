@@ -20,9 +20,11 @@ class HomePet(models.Model):
     age_pets = models.IntegerField('Возраст', help_text="Возраст")
     text_about_pets = models.TextField('Кратко о питомце',max_length=200, help_text="Замечания")
 
-    # def __str__(self):
-    #     return self.pets, self.name_pets, self.age_pets, self.foto, self.text_about_pets
+    def __str__(self):
+        return self.pets
 
+    class Meta:
+        verbose_name='Питомцы'
 
 class HelpList(models.Model):
     help_id = models.CharField(max_length=20, help_text="Enter field documentation")
@@ -154,5 +156,7 @@ class ItemAdd(models.Model):
     name = models.CharField('Волонтер',max_length=30, help_text="Фамилия и имя")
     phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
     phone = models.CharField('Телефон', validators=[phoneNumberRegex], max_length=16, unique=True)
+
+
 
 

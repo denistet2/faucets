@@ -1,12 +1,44 @@
-from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView, DataMixin
+from django.template.context_processors import csrf
+from django.views.generic.edit import CreateView, DataMixin, FormView
 from django.views.generic import ListView
+from django.contrib.auth import authenticate, login, logout
 from .models import *
 from .forms import *
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 # Create your views here.
 
+def register(request):
+    if request.method == 'POST':
+        form = RegisterUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.save()
+            login(request, user)
+            messages.success(request, 'Вы прошли регистрацию')
+            return redirect('index')
+        else:
+            messages.error(request, 'Ошибка валидации')
+    else:
+        form = RegisterUserForm()
+    return render(request, 'home_pets/register.html', {'form':form})
+
+def user_login(request):
+    if request.method == 'POST':
+        form = login_UserForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('benefit')
+    else:
+        form = login_UserForm()
+    return render(request, 'home_pets/login.html', {'form':form})
+
+
+def user_logout(request):
+    logout(request)
+    return redirect('login')
 
 def index(request):
     return render(request, 'home_pets/index.html')
@@ -24,8 +56,7 @@ class News(ListView):
     paginate_by = 3
     model = News
     template_name = 'home_pets/news.html'
-    context_object_name = 'addnews'
-    # return render(request, 'home_pets/news.html')
+    context_object_name = 'add_news'
 
 
 def volunteering(request):
@@ -44,6 +75,7 @@ class PetsHome(ListView):
     model = HomePet
     template_name = 'home_pets/wards.html'
     context_object_name = 'pets'
+    extra_context = {'title':'Подопечные'}
 
 # def wards(request):
 #
@@ -59,16 +91,16 @@ def tohome(request):
     else:
         form = AdToHomeForm()
 
-    return render(request, 'home_pets/tohome.html',{'form': form})
+    return render(request, 'home_pets/to_home.html',{'form': form})
 
 
 def temporarily(request):
     if request.method == 'POST':
-        form = AdOrderPetTemporarytyForm(request.POST)
+        form = AdOrderPetTemporarityForm(request.POST)
         if form.is_valid():
             form.save()
     else:
-        form = AdOrderPetTemporarytyForm()
+        form = AdOrderPetTemporarityForm()
 
     return render(request, 'home_pets/temporarily.html',{'form': form})
 
@@ -113,16 +145,3 @@ def food_medicines_help(request):
     return render(request, 'home_pets/food_medicines_help.html',{'form': form})
 
 
-class UserCreatingForm:
-    pass
-
-
-class RegisterUser(DataMixin, CreateView):
-    form_class = UserCreatingForm
-    template_name = 'home_pets/registrations.html'
-    # success_url = revers_lazy('login')
-
-    def get_context_data(self,object_list=None, **kwargs):
-        context = super().get_context_data()
-        c_def = self.get_user_context(title="Регистрация")
-        return dict(list(context.items()+list(c_def.items)))
