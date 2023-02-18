@@ -145,3 +145,7 @@ def food_medicines_help(request):
     return render(request, 'home_pets/food_medicines_help.html',{'form': form})
 
 
+def page_pay(request):
+    return render(request, 'home_pets/page_pay.html')
+
+

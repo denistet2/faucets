@@ -1,9 +1,16 @@
 from django.contrib import admin
 from .models import *
+from django.utils.safestring import mark_safe
 
 class HomePetAdmin(admin.ModelAdmin):
     list_display = ('pets','foto','name_pets','age_pets','text_about_pets')
 admin.site.register(HomePet,HomePetAdmin)
+
+# def show_foto(self, obj):
+#     if obj.image:
+#         return mark_safe("<img src='{}' width = 60 />".format(obj.image.url))
+#     show_foto.__name__='Картинка'
+
 class OrderPetAdmin(admin.ModelAdmin):
     list_display = ('name','phone','pets','message','order_data')
 admin.site.register(OrderPet,OrderPetAdmin)
