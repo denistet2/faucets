@@ -1,0 +1,34 @@
+{% extends 'home_pets/base.html' %}
+{% load static %}
+
+{% block title %}
+Как помочь
+{% endblock %}
+
+{% block content %}
+	<section class="top-page3" >
+		<h3 id="help">Каталог</h3>
+			<ul class="variant-list">
+				<li >
+					<a class="variant_1" href="{% url 'faucets' %}"><img src="{% static 'home_pets/images/variant_1.svg' %}"></a>
+					<p>Смесители</p>
+				</li>
+				<li >
+					<a class="variant_2" href="{% url 'basin' %}"><img src="{% static 'home_pets/images/variant_2.svg' %}"></a>
+					<p> Мойки</p>
+				</li>
+				<li >
+					<a class="variant_3" href="{% url 'accessories' %}"><img src="{% static 'home_pets/images/variant_3.svg' %}"></a>
+					<p>Аксессуары</p>
+				</li>
+				<li >
+					<a class="variant_4" href="{% url 'garden' %}"><img src="{% static 'home_pets/images/variant_4.svg' %}"></a>
+					<p>Садовый полив</p>
+				</li>
+				<li>
+					<a class="variant_5" href="{% url 'sewerage' %}"><img src="{% static 'home_pets/images/variant_5.svg' %}"></a>
+					<p>Канализация</p>
+				</li>
+			</ul>
+	</section>
+{% endblock %}

@@ -31,14 +31,39 @@ def transportation(request):
     return render(request, 'home_pets/transportation.html')
 
 
-def benefit(request):
-    return render(request, 'home_pets/benefit.html')
+def categories(request):
+    return render(request, 'home_pets/categories.html')
 
 
-def wards(request):
+def faucets(request):
 
     pets = HomePet.objects.all()
-    return render(request, 'home_pets/wards.html',{'pets': pets})
+    return render(request, 'home_pets/faucets.html',{'pets': pets})
+
+def basin(request):
+
+    pets = HomePet.objects.all()
+    return render(request, 'home_pets/basin.html',{'pets': pets})
+
+def accessories(request):
+
+    pets = HomePet.objects.all()
+    return render(request, 'home_pets/accessories.html',{'pets': pets})
+
+def garden(request):
+
+    pets = HomePet.objects.all()
+    return render(request, 'home_pets/garden.html',{'pets': pets})
+
+def sewerage(request):
+
+    pets = HomePet.objects.all()
+    return render(request, 'home_pets/sewerage.html',{'pets': pets})
+
+def favorites(request):
+
+    pets = HomePet.objects.all()
+    return render(request, 'home_pets/favorites.html',{'pets': pets})
 
 
 def tohome(request):
