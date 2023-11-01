@@ -2,23 +2,23 @@
 {% load static %}
 
 {% block title %}
-Забрать домой
+Сотрудничество
 {% endblock %}
 
 {% block content %}
 <div class="order_form">
 
-      <h1>Забрать домой</h1>
+      <h1>Клиентам</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
-      <div>Оставьте информацию о себе. Мы позвоним вам и<br> договоримся, когда вы сможете забрать себе<br >питомца.</div>
+      <div>Оставьте информацию о себе. Мы позвоним вам и<br> договоримся<br >о сотрудничестве.</div>
           <input type="submit" name="submit_btn" value="Отправить">
           <input type="submit" name="reset_btn" value="Отмена">
        </div>
        <div>Если у вас есть вопросы, можете позвонить нам:
-          <br>+375 (33) 6237879  Лена
-          <br>+375 (29) 7877791  Ольга
-          <br>+375 (29) 5837015  Рита
+          <br>+375 (33) XXXXXXX  Лена
+          <br>+375 (29) XXXXXXX  Ольга
+          <br>+375 (29) XXXXXXX  Рита
        </div>
 
     </form>

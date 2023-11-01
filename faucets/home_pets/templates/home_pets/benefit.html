@@ -2,32 +2,32 @@
 {% load static %}
 
 {% block title %}
-Как помочь
+Контент
 {% endblock %}
 
 {% block content %}
 	<section class="top-page3" >
-		<h3 id="help">Как помочь?</h3>
+		<h3 id="help">Материалы</h3>
 			<ul class="variant-list">
 				<li >
 					<a class="variant_1" href="{% url 'wards' %}"><img src="{% static 'home_pets/images/variant_1.svg' %}"></a>
-					<p>Дать хвостику дом или взять на передержку</p>
+					<p>Фото и описание</p>
 				</li>
 				<li >
 					<a class="variant_2" href="{% url 'financial_support' %}"><img src="{% static 'home_pets/images/variant_2.svg' %}"></a>
-					<p> Перечислить деньги в фонд помощи</p>
+					<p> Цены</p>
 				</li>
 				<li >
 					<a class="variant_3" href="{% url 'food_medicines' %}"><img src="{% static 'home_pets/images/variant_3.svg' %}"></a>
-					<p>Привезти корм, лекарства или другие вещи</p>
+					<p>Гарантии</p>
 				</li>
 				<li >
 					<a class="variant_4" href="{% url 'transportation' %}"><img src="{% static 'home_pets/images/variant_4.svg' %}"></a>
-					<p>Доставить животным еду или отвезти в больницу</p>
+					<p>Ремонт</p>
 				</li>
 				<li>
 					<a class="variant_5" href="{% url 'volunteering' %}"><img src="{% static 'home_pets/images/variant_5.svg' %}"></a>
-					<p>Выгуливать, кормить, мыть или лечить хвостиков</p>
+					<p>Обмен</p>
 				</li>
 			</ul>
 	</section>

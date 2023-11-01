@@ -8,17 +8,17 @@ from django.core.validators import RegexValidator
 class HomePet(models.Model):
     PETS_VAR = [
 
-        (1, 'Собака'),
-        (2, 'Кот'),
-        (3, 'Птица'),
-        (4, 'Насекомое')
+        (1, 'Смеситель'),
+        (2, 'Мойка'),
+        (3, 'Аксессуары'),
+        (4, 'Садовый полив')
 
     ]
-    pets = models.IntegerField('Категория', choices=PETS_VAR, help_text="Вид питомца" )
+    pets = models.IntegerField('Категория', choices=PETS_VAR, help_text="Категория номенклатуры" )
     foto = models.ImageField(upload_to='images', blank=True, verbose_name='Фото')
-    name_pets = models.CharField('Кличка', max_length=20, help_text="Кличка")
-    age_pets = models.IntegerField('Возраст', help_text="Возраст")
-    text_about_pets = models.TextField('Кратко о питомце',max_length=200, help_text="Замечания")
+    name_pets = models.CharField('Артикул', max_length=20, help_text="Артикул")
+    age_pets = models.IntegerField('Цена', help_text="Цена")
+    text_about_pets = models.TextField('Описание',max_length=200, help_text="Описание")
 
     # def __str__(self):
     #     return self.pets, self.name_pets, self.age_pets, self.foto, self.text_about_pets
