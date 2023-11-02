@@ -35,10 +35,16 @@ def categories(request):
     return render(request, 'home_pets/categories.html')
 
 
-def faucets(request):
-
-    pets = HomePet.objects.all()
-    return render(request, 'home_pets/faucets.html',{'pets': pets})
+#def faucets(request):
+#
+#    pets = HomePet.objects.all()
+#    return render(request, 'home_pets/faucets.html',{'pets': pets})
+class PetsHome(ListView):
+    paginate_by = 3
+    model = HomePet
+    template_name = 'home_pets/faucets.html'
+    context_object_name = 'pets'
+    extra_context = {'title':'Смесители'}
 
 def basin(request):
 
