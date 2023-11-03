@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home_pets.apps.HomePetsConfig',
+    'gerhans.apps.GerhansConfig',
 ]
 
 MIDDLEWARE = [
@@ -117,7 +117,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = f'{BASE_DIR}/home_pets/static'
+STATIC_ROOT = f'{BASE_DIR}/gerhans/static'
 STATICFILES_DIRS = []
 STATICFILES_FINDERS = (
 
@@ -133,7 +133,7 @@ STATICFILES_FINDERS = (
 #
 # # Path where media is stored
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-MEDIA_ROOT = f'{BASE_DIR}/home_pets/media'
+MEDIA_ROOT = f'{BASE_DIR}/gerhans/media'
 MEDIA_URL = '/media/'
 
 # Default primary key field type

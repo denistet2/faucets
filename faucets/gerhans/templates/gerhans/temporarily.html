@@ -1,0 +1,27 @@
+{% extends 'gerhans/base.html' %}
+{% load static %}
+
+{% block title %}
+ Избранное
+{% endblock %}
+
+{% block content %}
+<h1>Просмотрено</h1>
+<form method="post" class="post-form">{% csrf_token %}
+    {{ form.as_p }}
+
+
+        <input type="submit" name="submit_btn" value="Отправить">
+        <input type="submit" name="reset_btn" value="Отмена">
+
+       </div>
+           <div>Оставьте информацию о себе. Мы позвоним вам и договоримся, когда вы сможете забрать себе питомца на передержку.</div>
+        <div>Если у вас есть вопросы, можете позвонить нам:
+          <br>+375 (33) ХХХХХХХХ  Лена
+          <br>+375 (29) ХХХХХХХХ  Ольга
+          <br>+375 (29) ХХХХХХХХ  Рита
+        </div>
+
+      </div>
+</form>
+{% endblock %}

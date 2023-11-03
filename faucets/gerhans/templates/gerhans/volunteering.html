@@ -1,0 +1,34 @@
+{% extends 'gerhans/base.html' %}
+{% load static %}
+
+{% block title %}
+Волонтерство
+{% endblock %}
+
+{% block content %}
+        <section class="volonterstvo">
+			<div class="volonterstvo-page-top" id="other-help">
+				<div class="left-line"></div>
+				<div class="volonterstvo-logo"></div>
+				<div class="right-line"></div>
+			</div >
+			<div class="top-page2">
+			   <div class="orange-block">
+			        <div class="pitomec-foto-page2">
+					     <img src="{% static 'home_pets/images/volonterstvo-pitomec-foto.png' %}" alt="dog">
+				   </div>
+				</div>
+			   <div class="volonterstvo-text-block">
+					<h2>Волонтерство</h2>
+					<p>
+						Катастрофически не хватает добрых людей, которые готовы поделиться своим временем и окружить заботой
+						животных. Много опыта не нужно, все расскажем и поможем! Если Вы располагаете несколькими часами
+						свободного времени, проведите его с пользой! Главное условие - это Ваше совершеннолетие и любовь к
+						животным!
+						Часто животным не хватает обычных прогулок и игры, они сидят в клетках и грустят.
+					</p>
+				   <a href="{% url 'volunteering_help' %}" ><button>Оставить заявку</button></a>
+				</div>
+			</div>
+		</section>
+{% endblock %}
