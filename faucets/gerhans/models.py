@@ -20,8 +20,6 @@ class items(models.Model):
     price = models.IntegerField('Цена', help_text="Цена")
     text_about_item = models.TextField('Краткое описание',max_length=200, help_text="О товаре")
 
-    # def __str__(self):
-    #     return self.pets, self.name_pets, self.age_pets, self.foto, self.text_about_pets
 
 
 class HelpList(models.Model):
