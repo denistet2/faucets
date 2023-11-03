@@ -6,7 +6,7 @@ class ItemsAdmin(admin.ModelAdmin):
     list_display = ('items_type', 'foto', 'article', 'price', 'text_about_item')
 
 
-admin.site.register(items, ItemsAdmin)
+admin.site.register(faucets, ItemsAdmin)
 
 
 class OrderItemAdmin(admin.ModelAdmin):

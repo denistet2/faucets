@@ -42,7 +42,7 @@ def categories(request):
 #    return render(request, 'gerhans/faucets.html',{'pets': pets})
 class faucets(ListView):
     paginate_by = 3
-    model = items
+    model = faucets
     template_name = 'gerhans/faucets.html'
     context_object_name = 'items'
     extra_context = {'title':'Смесители'}
@@ -53,27 +53,27 @@ def basin(request):
     paginator = Paginator(item,3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'gerhans/basin.html',{'page_obj': page_obj ,'items': items})
+    return render(request, 'gerhans/basin.html',{'page_obj': page_obj ,'item': items})
 
 def accessories(request):
 
     pets = items.objects.all()
-    return render(request, 'gerhans/accessories.html',{'pets': pets})
+    return render(request, 'gerhans/accessories.html',{'item': items})
 
 def garden(request):
 
     pets = items.objects.all()
-    return render(request, 'gerhans/garden.html',{'pets': pets})
+    return render(request, 'gerhans/garden.html',{'item': items})
 
 def sewerage(request):
 
-    pets = Item.objects.all()
-    return render(request, 'gerhans/sewerage.html',{'pets': pets})
+    pets = items.objects.all()
+    return render(request, 'gerhans/sewerage.html',{'item': items})
 
 def favorites(request):
 
     pets = Item.objects.all()
-    return render(request, 'gerhans/favorites.html',{'pets': pets})
+    return render(request, 'gerhans/favorites.html',{'item': items})
 
 
 def tohome(request):
@@ -89,11 +89,11 @@ def tohome(request):
 
 def temporarily(request):
     if request.method == 'POST':
-        form = AdOrderPetTemporarytyForm(request.POST)
+        form = AdOrderItemTemporarytyForm(request.POST)
         if form.is_valid():
             form.save()
     else:
-        form = AdOrderPetTemporarytyForm()
+        form = AdOrderItemTemporarytyForm()
 
     return render(request, 'gerhans/temporarily.html',{'form': form})
 

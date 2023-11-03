@@ -5,7 +5,7 @@ from django.core.validators import RegexValidator
 
 
 
-class items(models.Model):
+class faucets(models.Model):
     ITEMS_VAR = [
 
         (1, 'Смесители'),
