@@ -24,12 +24,12 @@ def news(request):
     return render(request, 'gerhans/news.html')
 
 
-def volunteering(request):
-    return render(request, 'gerhans/volunteering.html')
+def gift(request):
+    return render(request, 'gerhans/gift.html')
 
 
-def transportation(request):
-    return render(request, 'gerhans/transportation.html')
+def delivery(request):
+    return render(request, 'gerhans/delivery.html')
 
 
 def categories(request):
@@ -42,28 +42,48 @@ def categories(request):
 #    return render(request, 'gerhans/faucets.html',{'pets': pets})
 class faucets(ListView):
     paginate_by = 3
-    model = faucets
+    model = Faucets
     template_name = 'gerhans/faucets.html'
-    context_object_name = 'items'
+    context_object_name = 'item'
     extra_context = {'title':'Смесители'}
 
-def basin(request):
+# def basins(request):
+#
+#     basin = Basins.objects.all()
+#     paginator = Paginator(basin,3)
+#     page_number = request.GET.get('page')
+#     page_obj = paginator.get_page(page_number)
+#     return render(request, 'gerhans/basin.html',{'page_obj': page_obj ,'basin': basins})
 
-    item = items.objects.all()
-    paginator = Paginator(item,3)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    return render(request, 'gerhans/basin.html',{'page_obj': page_obj ,'item': items})
+class basins(ListView):
+    paginate_by = 3
+    model = Basins
+    template_name = 'gerhans/basin.html'
+    context_object_name = 'basin'
+    extra_context = {'title':'Мойки'}
 
-def accessories(request):
+# def accessories(request):
+#
+#     pets = items.objects.all()
+#     return render(request, 'gerhans/accessories.html',{'item': items})
+class Accessories(ListView):
+    paginate_by = 3
+    model = Accessories
+    template_name = 'gerhans/accessories.html'
+    context_object_name = 'accessories'
+    extra_context = {'title':'Аксессуары'}
 
-    pets = items.objects.all()
-    return render(request, 'gerhans/accessories.html',{'item': items})
+# def garden(request):
+#
+#     pets = items.objects.all()
+#     return render(request, 'gerhans/garden.html',{'item': items})
 
-def garden(request):
-
-    pets = items.objects.all()
-    return render(request, 'gerhans/garden.html',{'item': items})
+class GardenItemList(ListView):
+    paginate_by = 3
+    model = Gardeneqm
+    template_name = 'gerhans/garden.html'
+    context_object_name = 'item'
+    extra_context = {'title':'Садовое оборудование'}
 
 def sewerage(request):
 
@@ -72,11 +92,11 @@ def sewerage(request):
 
 def favorites(request):
 
-    pets = Item.objects.all()
+    items = items.objects.all()
     return render(request, 'gerhans/favorites.html',{'item': items})
 
 
-def tohome(request):
+def basket(request):
     if request.method == "POST":
         form = AdToHomeForm(request.POST)
         if form.is_valid():
@@ -84,56 +104,56 @@ def tohome(request):
     else:
         form = AdToHomeForm()
 
-    return render(request, 'gerhans/tohome.html',{'form': form})
+    return render(request, 'gerhans/basket.html',{'form': form})
 
 
-def temporarily(request):
-    if request.method == 'POST':
-        form = AdOrderItemTemporarytyForm(request.POST)
-        if form.is_valid():
-            form.save()
-    else:
-        form = AdOrderItemTemporarytyForm()
-
-    return render(request, 'gerhans/temporarily.html',{'form': form})
-
-
-def transportation_order(request):
-    if request.method == 'POST':
-        form = AdTransportHelpForm(request.POST)
-        if form.is_valid():
-            form.save()
-    else:
-        form = AdTransportHelpForm()
-
-    return render(request, 'gerhans/transportation_order.html',{'form': form})
+# def temporarily(request):
+#     if request.method == 'POST':
+#         form = AdOrderItemTemporarytyForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#     else:
+#         form = AdOrderItemTemporarytyForm()
+#
+#     return render(request, 'gerhans/temporarily.html',{'form': form})
 
 
+# def transportation_order(request):
+#     if request.method == 'POST':
+#         form = AdTransportHelpForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#     else:
+#         form = AdTransportHelpForm()
+#
+#     return render(request, 'gerhans/transportation_order.html',{'form': form})
 
-def volunteering_help(request):
-    if request.method == 'POST':
-        form = AdVolOrderForm(request.POST)
-        if form.is_valid():
-            form.save()
-    else:
-        form = AdVolOrderForm()
-    return render(request, 'gerhans/volunteering_help.html',{'form': form})
+
+
+# def volunteering_help(request):
+#     if request.method == 'POST':
+#         form = AdVolOrderForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#     else:
+#         form = AdVolOrderForm()
+#     return render(request, 'gerhans/volunteering_help.html',{'form': form})
 
 
 def financial_support(request):
     return render(request, 'gerhans/financial_support.html')
 
 
-def food_medicines(request):
-    return render(request, 'gerhans/food_medicines.html')
-
-
-def food_medicines_help(request):
-    if request.method == 'POST':
-        form = AdFoodMedicinesHelpForm(request.POST)
-        if form.is_valid():
-            form.save()
-    else:
-        form = AdFoodMedicinesHelpForm()
-    return render(request, 'gerhans/food_medicines_help.html',{'form': form})
-
+def parts(request):
+    return render(request, 'gerhans/parts.html')
+#
+#
+# def food_medicines_help(request):
+#     if request.method == 'POST':
+#         form = AdFoodMedicinesHelpForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#     else:
+#         form = AdFoodMedicinesHelpForm()
+#     return render(request, 'gerhans/food_medicines_help.html',{'form': form})
+#

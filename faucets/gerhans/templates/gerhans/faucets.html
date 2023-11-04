@@ -10,25 +10,25 @@
      <section class="list-podopechnih">
 		<h2 id="ower-pets">Смесители</h2>
 		  <div class="list carts podopechnih">
-			  {% for items in faucets %}
+			  {% for item in Faucets %}
 			      <div class="cart pitomec monic">
 
-					    	<div><img class="foto" src="{{items.foto.url}}"/></div>
+					    	<div><img class="foto" src="{{faucet.foto.url}}"/></div>
 
 				            <div class="name pitomec">
-					             <h4 class="name-cart-pitomec monic">{{items.article}}</h4>
+					             <h4 class="name-cart-pitomec monic">{{faucet.article}}</h4>
 				            </div>
 
 				        <div class="line carts"></div>
 
-				        <p class="about pitomec monic">{{items.price}}</p>
+				        <p class="about pitomec monic">{{faucet.price}}</p>
 
-				        <p class="more about pitomec monic">{{items.text_about_items}}</p>
+				        <p class="more about pitomec monic">{{faucet.text_about_items}}</p>
 				        <div class="key-block ">
-					           <a href="{% url 'tohome' %}" >
+					           <a href="{% url 'basket' %}" >
 							     <button class="key-top" onclick=''>В корзину</button>
 							   </a>
-							   <a href="{% url 'temporarily' %}" >
+							   <a href="{% url 'favorites' %}" >
 					             <button class="key-down">В закладки</button>
 							   </a>
 				        </div>
@@ -36,10 +36,12 @@
 			  {% endfor %}
 		  </div>
 		<div class="key-see-all">
-			<a href="#all-pitomecs">Посмотреть всех(157)</a>
+			{% for p in page_obj.paginator.page_range %}
+			<a href="?page={{p}}">{{p}}</a>
+			{% endfor %}
 		</div>
 		    <div class="down-pitomec-list">
-			    <p>Помочь быстрее пристроить хвостиков можно путем размещения наших постов у себя в соц сетях. Переходите на
+			    <p>Переходите на
 				наши странички.</p>
 			    <div class="double-sotial">
 					<div class="double-sotial">

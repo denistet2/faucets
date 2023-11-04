@@ -10,26 +10,26 @@
      <section class="list-podopechnih">
 		<h2 id="ower-pets">Каталог моек и аксессуаров</h2>
 		  <div class="list carts podopechnih">
-			  {% for item in page_obj %}
+			  {% for item in basins %}
 			      <div class="cart pitomec monic">
 
-					    	<div><img class="foto" src="{{items.foto.url}}"/></div>
+					    	<div><img class="foto" src="{{basins.foto.url}}"/></div>
 
 				            <div class="name pitomec">
-					             <h4 class="name-cart-pitomec monic">{{items.article}}</h4>
+					             <h4 class="name-cart-pitomec monic">{{basins.article}}</h4>
 				            </div>
 
 				        <div class="line carts"></div>
 
-				        <p class="about pitomec monic">{{items.price}}</p>
+				        <p class="about pitomec monic">{{basins.price}}</p>
 
-				        <p class="more about pitomec monic">{{items.text_about_item}}</p>
+				        <p class="more about pitomec monic">{{basins.text_about_item}}</p>
 				        <div class="key-block ">
-					           <a href="{% url 'tohome' %}" >
-							     <button class="key-top" onclick=''>Забрать домой</button>
+					           <a href="{% url 'basket' %}" >
+							     <button class="key-top" onclick=''>Купить</button>
 							   </a>
-							   <a href="{% url 'temporarily' %}" >
-					             <button class="key-down">Забрать на передержку</button>
+							   <a href="{% url 'favorites' %}" >
+					             <button class="key-down">В избранное</button>
 							   </a>
 				        </div>
 			       </div>
