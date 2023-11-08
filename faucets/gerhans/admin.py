@@ -2,11 +2,11 @@ from django.contrib import admin
 from .models import *
 
 
-class FaucetsAdmin(admin.ModelAdmin):
+class FaucetsListAdmin(admin.ModelAdmin):
     list_display = ('faucets_type', 'foto', 'article', 'price', 'text_about_item', 'published')
 
 
-admin.site.register(Faucets, FaucetsAdmin)
+admin.site.register(Faucets, FaucetsListAdmin)
 
 
 class BasinsAdmin(admin.ModelAdmin):

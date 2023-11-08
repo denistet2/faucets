@@ -40,7 +40,7 @@ def categories(request):
 #
 #    pets = HomePet.objects.all()
 #    return render(request, 'gerhans/faucets.html',{'pets': pets})
-class faucets(ListView):
+class FaucetsList(ListView):
     paginate_by = 3
     model = Faucets
     template_name = 'gerhans/faucets.html'
