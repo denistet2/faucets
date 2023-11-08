@@ -6,16 +6,16 @@ from django import forms
 
 
 #
-# class AdOrderItemTemporarytyForm(forms.ModelForm):
-#     class Meta:
-#         model = OrderItemTemporarity
-#         fields = '__all__'
+class AdFavoritesList(forms.ModelForm):
+    class Meta:
+        model = OrderItemTemporarity
+        fields = '__all__'
 #
 #
-# class AdToHomeForm(forms.ModelForm):
-#     class Meta:
-#         model = OrderItem
-#         fields = '__all__'
+class AdBasketForm(forms.ModelForm):
+    class Meta:
+        model = OrderItem
+        fields = '__all__'
 #
 #
 # class AdTransportHelpForm(forms.ModelForm):

@@ -83,26 +83,26 @@ class News(models.Model):
     data = models.DateTimeField(blank=True, verbose_name="Дата")
 #
 #
-# class OrderItem(models.Model):
-#     name = models.CharField('Заводчик', max_length=30, help_text="Фамилия и имя")
-#     # phone = models.CharField(max_length=10, help_text="Номер телефона")
-#     phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
-#     phone = models.CharField('Телефон',validators=[phoneNumberRegex], max_length=16, unique=True)
-#     article = models.CharField('Артикул',max_length=20, help_text="Артикул")
-#     message = models.TextField('Замечания',max_length=100, help_text="Замечания")
-#     order_data = models.DateTimeField(verbose_name="Дата")
+class OrderItem(models.Model):
+    name = models.CharField('Заводчик', max_length=30, help_text="Фамилия и имя")
+    # phone = models.CharField(max_length=10, help_text="Номер телефона")
+    phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
+    phone = models.CharField('Телефон',validators=[phoneNumberRegex], max_length=16, unique=True)
+    article = models.CharField('Артикул',max_length=20, help_text="Артикул")
+    message = models.TextField('Замечания',max_length=100, help_text="Замечания")
+    order_data = models.DateTimeField(verbose_name="Дата")
 #
 #
-# class OrderItemTemporarity(models.Model):
-#     name = models.CharField('Волонтер',max_length=30, help_text="Фамилия и имя")
-#     # phone = models.CharField(max_length=10, help_text="Номер телефона")
-#     phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
-#     phone = models.CharField('Телефон',validators=[phoneNumberRegex], max_length=16, unique=True)
-#     article = models.CharField('Артикул',max_length=20, help_text="Артикул")
-#     order_data = models.DateTimeField(verbose_name="Дата")
-#     start_time = models.DateTimeField(verbose_name="Начало")
-#     end_time = models.DateTimeField(verbose_name="Окончание")
-#     message = models.TextField('Замечания',max_length=100, help_text="Замечания")
+class OrderItemTemporarity(models.Model):
+    name = models.CharField('Волонтер',max_length=30, help_text="Фамилия и имя")
+    # phone = models.CharField(max_length=10, help_text="Номер телефона")
+    phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
+    phone = models.CharField('Телефон',validators=[phoneNumberRegex], max_length=16, unique=True)
+    article = models.CharField('Артикул',max_length=20, help_text="Артикул")
+    order_data = models.DateTimeField(verbose_name="Дата")
+    start_time = models.DateTimeField(verbose_name="Начало")
+    end_time = models.DateTimeField(verbose_name="Окончание")
+    message = models.TextField('Замечания',max_length=100, help_text="Замечания")
 #
 #
 # class TransportationOrder(models.Model):

@@ -97,32 +97,32 @@ class SewerageList(ListView):
 #     pets = items.objects.all()
 #     return render(request, 'gerhans/sewerage.html',{'item': items})
 
-def favorites(request):
-
-    items = items.objects.all()
-    return render(request, 'gerhans/favorites.html',{'item': items})
+# def favorites(request):
+#
+#     items = items.objects.all()
+#     return render(request, 'gerhans/favorites.html',{'item': items})
 
 
 def basket(request):
     if request.method == "POST":
-        form = AdToHomeForm(request.POST)
+        form = AdBasketForm(request.POST)
         if form.is_valid():
             form.save()
     else:
-        form = AdToHomeForm()
+        form = AdBasketForm()
 
     return render(request, 'gerhans/basket.html',{'form': form})
 
 
-# def temporarily(request):
-#     if request.method == 'POST':
-#         form = AdOrderItemTemporarytyForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#     else:
-#         form = AdOrderItemTemporarytyForm()
-#
-#     return render(request, 'gerhans/temporarily.html',{'form': form})
+def FavoritesList(request):
+    if request.method == 'POST':
+        form = AdFavoritesList(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = AdFavoritesList()
+
+    return render(request, 'gerhans/favorites.html',{'form': form})
 
 
 # def transportation_order(request):
