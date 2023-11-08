@@ -66,7 +66,7 @@ class basins(ListView):
 #
 #     pets = items.objects.all()
 #     return render(request, 'gerhans/accessories.html',{'item': items})
-class Accessories(ListView):
+class AccessoriesList(ListView):
     paginate_by = 3
     model = Accessories
     template_name = 'gerhans/accessories.html'
@@ -85,10 +85,17 @@ class GardenItemList(ListView):
     context_object_name = 'item'
     extra_context = {'title':'Садовое оборудование'}
 
-def sewerage(request):
+class SewerageList(ListView):
+    paginate_by = 3
+    model = Gardeneqm
+    template_name = 'gerhans/sewerage.html'
+    context_object_name = 'item'
+    extra_context = {'title':'Садовое оборудование'}
 
-    pets = items.objects.all()
-    return render(request, 'gerhans/sewerage.html',{'item': items})
+# def sewerage(request):
+#
+#     pets = items.objects.all()
+#     return render(request, 'gerhans/sewerage.html',{'item': items})
 
 def favorites(request):
 

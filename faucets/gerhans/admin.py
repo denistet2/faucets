@@ -16,11 +16,11 @@ class BasinsAdmin(admin.ModelAdmin):
 admin.site.register(Basins, BasinsAdmin)
 
 
-class AccessoriesAdmin(admin.ModelAdmin):
-    list_display = ('item_type', 'foto', 'article', 'price', 'text_about_item', 'published')
+class AccessoriesListAdmin(admin.ModelAdmin):
+    list_display = ('items_type', 'foto', 'article', 'price', 'text_about_item', 'published')
 
 
-admin.site.register(Accessories, AccessoriesAdmin)
+admin.site.register(Accessories, AccessoriesListAdmin)
 
 
 
