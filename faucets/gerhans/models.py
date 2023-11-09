@@ -3,22 +3,62 @@ from datetime import datetime
 from django.core.validators import RegexValidator
 
 
-class Faucets(models.Model):
+class Faucet(models.Model):
     ITEMS_VAR = [
 
-        (1, 'Ванна'),
+        (1, 'Смеситель'),
         (2, 'Мойки'),
-        (3, 'Умывальник'),
-        (4, 'Душ')
+        (3, 'Аксессуары'),
+        (4, 'Канализация'),
+        (5, 'Садовый полив')
 
     ]
-    faucets_type = models.IntegerField('Назначение', choices=ITEMS_VAR, help_text="Вид товара" )
-    foto = models.ImageField(upload_to='images', blank=True, verbose_name='Фото')
-    article = models.CharField('Артикул', max_length=20, help_text="Артикул")
-    price = models.IntegerField('Цена', help_text="Цена")
-    text_about_item = models.TextField('Краткое описание',max_length=200, help_text="О товаре")
-    published = models.DateTimeField(auto_now_add=True, db_index=True)
 
+
+
+    product_id = models.CharField('ID', blank=True,max_length=20, help_text="Артикул")
+    name = models.CharField('Наименование', blank=True,max_length=20, help_text="Артикул")
+    categories = models.CharField('Категория',choices=ITEMS_VAR, blank=True,max_length=20, help_text="Артикул")
+    sku = models.CharField('Артикул', blank=True,max_length=20, help_text="Артикул")
+    upc = models.CharField('UPC', blank=True,max_length=20, help_text="Артикул")
+    ean = models.CharField('EAN', blank=True,max_length=20, help_text="Артикул")
+    jan = models.CharField('JAN', blank=True,max_length=20, help_text="Артикул")
+    isbn = models.CharField('ISBN', blank=True,max_length=20, help_text="Артикул")
+    mpn = models.CharField('MPN', blank=True,max_length=20, help_text="Артикул")
+    location = models.CharField('Размещение', blank=True,max_length=20, help_text="Артикул")
+    quantity = models.CharField('Количество', blank=True,max_length=20, help_text="Артикул")
+    model = models.CharField('Модель', blank=True,max_length=20, help_text="На упаковке")
+    manufacturer = models.CharField('Производитель', blank=True,max_length=20, help_text="Артикул")
+    image_name = models.CharField('Изображение', blank=True,max_length=20, help_text="фото")
+    foto = models.ImageField(upload_to='images', blank=True, verbose_name='Фото')
+    shipping = models.CharField('Пересылка', blank=True,max_length=20, help_text="Артикул")
+    price = models.DecimalField('Цена', help_text="Цена", max_digits=8, decimal_places=2)
+    points = models.CharField('Баллы', blank=True,max_length=20, help_text="Артикул")
+    date_added = models.DateTimeField('Дата добавления',auto_now_add=True, db_index=True)
+    date_modified = models.DateTimeField('Дата изменений',auto_now_add=True, db_index=True)
+    date_available = models.DateTimeField('Дата поступления',auto_now_add=True, db_index=True)
+    weight = models.CharField('Вес', blank=True,max_length=20, help_text="Артикул")
+    weight_unit = models.CharField('Вес нетто', blank=True,max_length=20, help_text="Артикул")
+    length = models.CharField('Длина', blank=True,max_length=20, help_text="Артикул")
+    width = models.CharField('Ширина', blank=True,max_length=20, help_text="Артикул")
+    height = models.CharField('Высота', blank=True,max_length=20, help_text="Артикул")
+    length_unit = models.CharField('Габарит', blank=True,max_length=20, help_text="Артикул")
+    status = models.CharField('Наличие', blank=True,max_length=20, help_text="Артикул")
+    tax_class_id = models.CharField('Налог', blank=True,max_length=20, help_text="Артикул")
+    seo_keyword = models.CharField('Url ЧПУ', blank=True,max_length=20, help_text="Артикул")
+    description = models.CharField('Описание', blank=True,max_length=20, help_text="Артикул")
+    meta_title = models.CharField('title', blank=True,max_length=20, help_text="Артикул")
+    meta_description = models.CharField('Снипет', blank=True,max_length=20, help_text="Артикул")
+    meta_h1 = models.CharField('Заголовок H1', blank=True,max_length=20, help_text="Артикул")
+    meta_keywords = models.CharField('Ключевые слова', blank=True,max_length=20, help_text="Артикул")
+    stock_status_id = models.CharField('Наличие в продаже', blank=True,max_length=20, help_text="Артикул")
+    store_ids = models.CharField('Магазин', blank=True,max_length=20, help_text="Артикул")
+    layout = models.CharField('Сорт', blank=True,max_length=20, help_text="Артикул")
+    related_ids = models.CharField('Аналоги', blank=True,max_length=20, help_text="Артикул")
+    tags = models.CharField('Тэги', blank=True,max_length=20, help_text="Артикул")
+    sort_order = models.CharField('Сортировка', blank=True,max_length=20, help_text="Артикул")
+    subtract = models.CharField('Резервирование', blank=True,max_length=20, help_text="Артикул")
+    minimum = models.CharField('Минимальный остаток', blank=True,max_length=20, help_text="Артикул")
 
 class Basins(models.Model):
     ITEMS_VAR = [
@@ -30,7 +70,7 @@ class Basins(models.Model):
     basins_type = models.IntegerField('Назначение', choices=ITEMS_VAR, help_text="Вид товара" )
     foto = models.ImageField(upload_to='images', blank=True, verbose_name='Фото')
     article = models.CharField('Артикул', max_length=20, help_text="Артикул")
-    price = models.IntegerField('Цена', help_text="Цена")
+    price = models.DecimalField('Цена', help_text="Цена", max_digits=4, decimal_places=2)
     text_about_item = models.TextField('Краткое описание',max_length=200, help_text="О товаре")
     published = models.DateTimeField(auto_now_add=True, db_index=True)
 
@@ -45,7 +85,7 @@ class Accessories(models.Model):
     items_type = models.IntegerField('Назначение', choices=ITEMS_VAR, help_text="Вид товара" )
     foto = models.ImageField(upload_to='images', blank=True, verbose_name='Фото')
     article = models.CharField('Артикул', max_length=20, help_text="Артикул")
-    price = models.IntegerField('Цена', help_text="Цена")
+    price = models.DecimalField('Цена', help_text="Цена", max_digits=4, decimal_places=2)
     text_about_item = models.TextField('Краткое описание',max_length=200, help_text="О товаре")
     published = models.DateTimeField(auto_now_add=True, db_index=True)
 
@@ -59,7 +99,7 @@ class Gardeneqm(models.Model):
     items_type = models.IntegerField('Назначение', choices=ITEMS_VAR, help_text="Вид товара" )
     foto = models.ImageField(upload_to='images', blank=True, verbose_name='Фото')
     article = models.CharField('Артикул', max_length=20, help_text="Артикул")
-    price = models.IntegerField('Цена', help_text="Цена")
+    price = models.DecimalField('Цена', help_text="Цена", max_digits=4, decimal_places=2)
     text_about_item = models.TextField('Краткое описание',max_length=200, help_text="О товаре")
     published = models.DateTimeField(auto_now_add=True, db_index=True)
 

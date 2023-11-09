@@ -36,24 +36,15 @@ def categories(request):
     return render(request, 'gerhans/categories.html')
 
 
-#def faucets(request):
-#
-#    pets = HomePet.objects.all()
-#    return render(request, 'gerhans/faucets.html',{'pets': pets})
+
 class FaucetsList(ListView):
     paginate_by = 3
-    model = Faucets
+    model = Faucet
     template_name = 'gerhans/faucets.html'
-    context_object_name = 'item'
+    context_object_name = 'faucet'
     extra_context = {'title':'Смесители'}
 
-# def basins(request):
-#
-#     basin = Basins.objects.all()
-#     paginator = Paginator(basin,3)
-#     page_number = request.GET.get('page')
-#     page_obj = paginator.get_page(page_number)
-#     return render(request, 'gerhans/basin.html',{'page_obj': page_obj ,'basin': basins})
+
 
 class basins(ListView):
     paginate_by = 3
@@ -62,10 +53,7 @@ class basins(ListView):
     context_object_name = 'basin'
     extra_context = {'title':'Мойки'}
 
-# def accessories(request):
-#
-#     pets = items.objects.all()
-#     return render(request, 'gerhans/accessories.html',{'item': items})
+
 class AccessoriesList(ListView):
     paginate_by = 3
     model = Accessories

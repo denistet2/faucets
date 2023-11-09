@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gerhans.apps.GerhansConfig',
+    'import_export',
 ]
 
 MIDDLEWARE = [

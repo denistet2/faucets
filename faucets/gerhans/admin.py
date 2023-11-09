@@ -1,12 +1,57 @@
 from django.contrib import admin
 from .models import *
+from import_export.admin import ImportExportActionModelAdmin
+from import_export import resources
+from import_export import fields
+from import_export.widgets import ForeignKeyWidget
 
 
-class FaucetsListAdmin(admin.ModelAdmin):
-    list_display = ('faucets_type', 'foto', 'article', 'price', 'text_about_item', 'published')
+class FaucetsListAdmin(ImportExportActionModelAdmin):
+    list_display = ( 'product_id',
+                     'name',
+                     'categories',
+                     'sku',
+                     'upc',
+                     'ean',
+                     'jan',
+                     'isbn',
+                     'mpn',
+                     'location',
+                     'quantity',
+                     'model',
+                     'manufacturer',
+                     'image_name',
+                     'shipping',
+                     'price',
+                     'points',
+                     'date_added',
+                     'date_modified',
+                     'date_available',
+                     'weight',
+                     'weight_unit',
+                     'length',
+                     'width',
+                     'height',
+                     'length_unit',
+                     'status',
+                     'tax_class_id',
+                     'seo_keyword',
+                     'description',
+                     'meta_title',
+                     'meta_description',
+                     'meta_h1',
+                     'meta_keywords',
+                     'stock_status_id',
+                     'store_ids',
+                     'layout',
+                     'related_ids',
+                     'tags',
+                     'sort_order',
+                     'subtract',
+                     'minimum',)
 
 
-admin.site.register(Faucets, FaucetsListAdmin)
+admin.site.register(Faucet, FaucetsListAdmin)
 
 
 class BasinsAdmin(admin.ModelAdmin):

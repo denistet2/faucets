@@ -10,20 +10,20 @@
      <section class="list-podopechnih">
 		<h2 id="ower-pets">Смесители</h2>
 		  <div class="list carts podopechnih">
-			  {% for i in item %}
+			  {% for i in faucet %}
 			      <div class="cart pitomec monic">
 
-					    	<div><img class="foto" src="{{faucet.foto.url}}"/></div>
+					    	<div><img class="foto" src="{{i.foto.url}}"/></div>
 
 				            <div class="name pitomec">
-					             <h4 class="name-cart-pitomec monic">{{faucet.article}}</h4>
+					             <h4 class="name-cart-pitomec monic">{{i.article}}</h4>
 				            </div>
 
 				        <div class="line carts"></div>
 
-				        <p class="about pitomec monic">{{faucet.price}}</p>
+				        <p class="about pitomec monic">{{i.price}}</p>
 
-				        <p class="more about pitomec monic">{{faucet.text_about_items}}</p>
+				        <p class="more about pitomec monic">{{i.description}}</p>
 				        <div class="key-block ">
 					           <a href="{% url 'basket' %}" >
 							     <button class="key-top" onclick=''>В корзину</button>
