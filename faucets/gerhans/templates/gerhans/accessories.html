@@ -2,39 +2,38 @@
 {% load static %}
 
 {% block title %}
-Канализация
+Аксессуары
 {% endblock %}
 
 {% block content %}
 
      <section class="list-podopechnih">
-		<h2 id="ower-pets">Канализация</h2>
+		<h2 id="ower-pets">Аксессуары</h2>
 		  <div class="list carts podopechnih">
-			  {% for homepet in pets %}
+			  {% for aks in accessory %}
 			      <div class="cart pitomec monic">
-<!--				        <div class="foto pitomec">{{homepet.foto}}</div>-->
-					    	<div><img class="foto" src="{{homepet.foto.url}}"/></div>
-<!--					  <img src="{{ object.img.url }}" />-->
+
+					    	<div><img class="foto" src="{{aks.foto.url}}"/></div>
+
 				            <div class="name pitomec">
-					             <h4 class="name-cart-pitomec monic">{{homepet.name_pets}}</h4>
+					             <h4 class="name-cart-pitomec monic">{{aks.article}}</h4>
 				            </div>
 
 				        <div class="line carts"></div>
 
-				        <p class="about pitomec monic">{{homepet.age_pets}}</p>
+				        <p class="about pitomec monic">{{aks.price}}</p>
 
-				        <p class="more about pitomec monic">{{homepet.text_about_pets}}</p>
+				        <p class="more about pitomec monic">{{aks.name}}</p>
 				        <div class="key-block ">
-					           <a href="{% url 'tohome' %}" >
-							     <button class="key-top" onclick=''>Забрать домой</button>
+					           <a href="{% url 'basket' %}" >
+							     <button class="key-top" onclick=''>В корзину</button>
 							   </a>
-							   <a href="{% url 'temporarily' %}" >
-					             <button class="key-down">Забрать на передержку</button>
+							   <a href="{% url 'favorites' %}" >
+					             <button class="key-down">В закладки</button>
 							   </a>
 				        </div>
 			       </div>
 			  {% endfor %}
-
 		  </div>
 		<div class="key-see-all">
 				{% if page_obj.has_previous %}
@@ -58,7 +57,7 @@
 				{% endif %}
 		</div>
 		    <div class="down-pitomec-list">
-			    <p>Помочь быстрее пристроить хвостиков можно путем размещения наших постов у себя в соц сетях. Переходите на
+			    <p>Переходите на
 				наши странички.</p>
 			    <div class="double-sotial">
 					<div class="double-sotial">
