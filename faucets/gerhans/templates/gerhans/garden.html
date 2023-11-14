@@ -12,9 +12,7 @@
 		  <div class="list carts podopechnih">
 			  {% for homepet in pets %}
 			      <div class="cart pitomec monic">
-<!--				        <div class="foto pitomec">{{homepet.foto}}</div>-->
 					    	<div><img class="foto" src="{{homepet.foto.url}}"/></div>
-<!--					  <img src="{{ object.img.url }}" />-->
 				            <div class="name pitomec">
 					             <h4 class="name-cart-pitomec monic">{{homepet.name_pets}}</h4>
 				            </div>
@@ -25,106 +23,46 @@
 
 				        <p class="more about pitomec monic">{{homepet.text_about_pets}}</p>
 				        <div class="key-block ">
-					           <a href="{% url 'tohome' %}" >
+					           <a href="{% url 'basket' %}" >
 							     <button class="key-top" onclick=''>Забрать домой</button>
 							   </a>
-							   <a href="{% url 'temporarily' %}" >
+							   <a href="{% url 'favorites' %}" >
 					             <button class="key-down">Забрать на передержку</button>
 							   </a>
 				        </div>
 			       </div>
 			  {% endfor %}
-<!--			<div class="cart pitomec lunatic">-->
-<!--				<div class="foto pitomec"></div>-->
-<!--				<div class="name pitomec">-->
-<!--					<h4 class="name-cart-pitomec monic">Лунатик</h4>-->
-<!--				</div>-->
-
-<!--				<div class="line carts"></div>-->
-
-<!--				<p class="about pitomec monic">Мальчик, 7 месяцев</p>-->
-
-<!--				<p class="more about pitomec monic">Она не знает, что такое – царапаться и кусаться, она не знает, что-->
-<!--					такое нападать на других животных.</p>-->
-<!--				<div class="key-block">-->
-<!--					<button class="key-top">Забрать домой</button>-->
-<!--					<button class="key-down">Забрать на передержку</button>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--			<div class="cart pitomec gerda">-->
-<!--				<div class="foto pitomec"></div>-->
-<!--				<div class="name pitomec">-->
-<!--					<h4 class="name-cart-pitomec monic">Герда</h4>-->
-<!--				</div>-->
-
-<!--				<div class="carts line "></div>-->
-
-<!--				<p class="about pitomec monic">Мальчик, 7 месяцев</p>-->
-
-<!--				<p class="more about pitomec monic">К поводку приучен. Не агрессивный. В еде не привередничает. С-->
-<!--					другими животными не конфликтует. Привит. Очень плачет и хочет на ручки. Отдается только в добрые-->
-<!--					руки и под паспорт.</p>-->
-<!--				<div class="key-block">-->
-<!--					<button class="key-top">Забрать домой</button>-->
-<!--					<button class="key-down">Забрать на передержку</button>-->
-<!--				</div>-->
-<!--			</div>-->
-
-<!--			<div class="cart pitomec saki">-->
-<!--				<div class="foto pitomec"></div>-->
-<!--				<div class="name pitomec">-->
-<!--					<h4 class="name-cart-pitomec saki">Саки</h4>-->
-<!--				</div>-->
-
-<!--				<div class="carts line "></div>-->
-
-<!--				<p class="about pitomec saki">Мальчик, 7 месяцев</p>-->
-
-<!--				<p class="more about pitomec saki">Веселый и очень игривый, ему так нужны ваша любовь и ласка.У него-->
-<!--					потрясающая густая шерсть в полосочку, «серьезные» желтые глаза и длиннющие белые усы.</p>-->
-<!--				<div class="key-block">-->
-<!--					<button class="key-top">Забрать домой</button>-->
-<!--					<button class="key-down">Забрать на передержку</button>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--			<div class="cart pitomec monika">-->
-<!--				<div class="foto pitomec"></div>-->
-<!--				<div class="name pitomec">-->
-<!--					<h4 class="name-cart-pitomec monika">Моника</h4>-->
-<!--				</div>-->
-
-<!--				<div class="carts line "></div>-->
-
-<!--				<p class="about pitomec monika">Мальчик, 7 месяцев</p>-->
-
-<!--				<p class="more about pitomec monika">Веселый и очень игривый, ему так нужны ваша любовь и ласка.У него-->
-<!--					потрясающая густая шерсть в полосочку, «серьезные» желтые глаза и длиннющие белые усы.</p>-->
-<!--				<div class="key-block">-->
-<!--					<button class="key-top">Забрать домой</button>-->
-<!--					<button class="key-down">Забрать на передержку</button>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--			<div class="cart pitomec adreatino">-->
-<!--				<div class="foto pitomec"></div>-->
-<!--				<div class="name pitomec">-->
-<!--					<h4 class="name-cart-pitomec adreatino">Адреатино</h4>-->
-<!--				</div>-->
-
-<!--				<div class="carts line "></div>-->
-
-<!--				<p class="about pitomec adreatino">Мальчик, 7 месяцев</p>-->
-
-<!--				<p class="more about pitomec monic">Веселый и очень игривый, ему так нужны ваша любовь и ласка.У него-->
-<!--					потрясающая густая шерсть в полосочку, «серьезные» желтые глаза и длиннющие белые усы.</p>-->
-<!--				<div class="key-block">-->
-<!--					<button class="key-top">Забрать домой</button>-->
-<!--					<button class="key-down">Забрать на передержку</button>-->
-<!--				</div>-->
-<!--			</div>-->
 		  </div>
-		<div class="key-see-all">
-			<a href="#all-pitomecs">Посмотреть всех(157)</a>
+		 <div class="key-see-all">
+				{% if page_obj.has_previous %}
+					<li class="page-num">
+        				 <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+					</li>
+				{% endif %}
+				{% for p in paginator.page_range %}
+                   {% if page_obj.number == p %}
+        				<li class="page-num page-num-selected">{{ p }}</li>
+                   {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2  %}
+       					 <li class="page-num">
+            				<a href="?page={{ p }}">{{ p }}</a>
+						 </li>
+                   {% endif %}
+        		{% endfor %}
+				{% if page_obj.has_next %}
+					<li class="page-num">
+         					<a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+					</li>
+				{% endif %}
 		</div>
+<nav class="menu">
+		<ul class="top-menu">
+			{% for p in paginator.page_range %}
+			<li class="page-num">
+				<a href="?page={{p}}" class="cdp_i">{{p}}</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</nav>
 		    <div class="down-pitomec-list">
 			    <p>Помочь быстрее пристроить хвостиков можно путем размещения наших постов у себя в соц сетях. Переходите на
 				наши странички.</p>

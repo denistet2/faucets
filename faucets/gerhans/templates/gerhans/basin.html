@@ -10,7 +10,7 @@
      <section class="list-podopechnih">
 		<h2 id="ower-pets">Каталог моек и аксессуаров</h2>
 		  <div class="list carts podopechnih">
-			  {% for item in basins %}
+			  {% for i in basin %}
 			      <div class="cart pitomec monic">
 
 					    	<div><img class="foto" src="{{basins.foto.url}}"/></div>
@@ -23,7 +23,7 @@
 
 				        <p class="about pitomec monic">{{basins.price}}</p>
 
-				        <p class="more about pitomec monic">{{basins.text_about_item}}</p>
+				        <p class="more about pitomec monic">{{basins.name}}</p>
 				        <div class="key-block ">
 					           <a href="{% url 'basket' %}" >
 							     <button class="key-top" onclick=''>Купить</button>
@@ -37,9 +37,25 @@
 
 		  </div>
 		<div class="key-see-all">
-			{% for p in page_obj.paginator.page_range %}
-			<a href="?page={{p}}">{{p}}</a>
-			{% endfor %}
+				{% if page_obj.has_previous %}
+					<li class="page-num">
+        				 <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+					</li>
+				{% endif %}
+				{% for p in paginator.page_range %}
+                   {% if page_obj.number == p %}
+        				<li class="page-num page-num-selected">{{ p }}</li>
+                   {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2  %}
+       					 <li class="page-num">
+            				<a href="?page={{ p }}">{{ p }}</a>
+						 </li>
+                   {% endif %}
+        		{% endfor %}
+				{% if page_obj.has_next %}
+					<li class="page-num">
+         					<a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+					</li>
+				{% endif %}
 		</div>
 		    <div class="down-pitomec-list">
 			    <p>Мы в соц сетях. Переходите на

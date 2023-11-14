@@ -7,7 +7,7 @@ from import_export.widgets import ForeignKeyWidget
 
 
 class FaucetsListAdmin(ImportExportActionModelAdmin):
-    list_display = ( 'product_id',
+    list_display = (
                      'name',
                      'categories',
                      'sku',
@@ -54,18 +54,100 @@ class FaucetsListAdmin(ImportExportActionModelAdmin):
 admin.site.register(Faucet, FaucetsListAdmin)
 
 
-class BasinsAdmin(admin.ModelAdmin):
-    list_display = ('basins_type', 'foto', 'article', 'price', 'text_about_item', 'published')
+class BasinsListAdmin(ImportExportActionModelAdmin):
+    list_display = (
+        'name',
+        'categories',
+        'sku',
+        'upc',
+        'ean',
+        'jan',
+        'isbn',
+        'mpn',
+        'location',
+        'quantity',
+        'model',
+        'manufacturer',
+        'image_name',
+        'shipping',
+        'price',
+        'points',
+        'date_added',
+        'date_modified',
+        'date_available',
+        'weight',
+        'weight_unit',
+        'length',
+        'width',
+        'height',
+        'length_unit',
+        'status',
+        'tax_class_id',
+        'seo_keyword',
+        'description',
+        'meta_title',
+        'meta_description',
+        'meta_h1',
+        'meta_keywords',
+        'stock_status_id',
+        'store_ids',
+        'layout',
+        'related_ids',
+        'tags',
+        'sort_order',
+        'subtract',
+        'minimum',)
 
 
-admin.site.register(Basins, BasinsAdmin)
+admin.site.register(Basin, BasinsListAdmin)
 
 
-class AccessoriesListAdmin(admin.ModelAdmin):
-    list_display = ('items_type', 'foto', 'article', 'price', 'text_about_item', 'published')
+class AccessoriesListAdmin(ImportExportActionModelAdmin):
+    list_display = (
+        'name',
+        'categories',
+        'sku',
+        'upc',
+        'ean',
+        'jan',
+        'isbn',
+        'mpn',
+        'location',
+        'quantity',
+        'model',
+        'manufacturer',
+        'image_name',
+        'shipping',
+        'price',
+        'points',
+        'date_added',
+        'date_modified',
+        'date_available',
+        'weight',
+        'weight_unit',
+        'length',
+        'width',
+        'height',
+        'length_unit',
+        'status',
+        'tax_class_id',
+        'seo_keyword',
+        'description',
+        'meta_title',
+        'meta_description',
+        'meta_h1',
+        'meta_keywords',
+        'stock_status_id',
+        'store_ids',
+        'layout',
+        'related_ids',
+        'tags',
+        'sort_order',
+        'subtract',
+        'minimum',)
 
 
-admin.site.register(Accessories, AccessoriesListAdmin)
+admin.site.register(Accessory, AccessoriesListAdmin)
 
 
 
@@ -98,11 +180,52 @@ admin.site.register(Accessories, AccessoriesListAdmin)
 # admin.site.register(VolOrder, VolOrderAdmin)
 #
 #
-class MedicamentosAddAdmin(admin.ModelAdmin):
-    list_display = ('med_type', 'med_weight', 'name', 'phone')
-#
-#
-# admin.site.register(MedicamentosAdd, MedicamentosAddAdmin)
+class GardenEqmListAdmin(ImportExportActionModelAdmin):
+    list_display = (
+        'name',
+        'categories',
+        'sku',
+        'upc',
+        'ean',
+        'jan',
+        'isbn',
+        'mpn',
+        'location',
+        'quantity',
+        'model',
+        'manufacturer',
+        'image_name',
+        'shipping',
+        'price',
+        'points',
+        'date_added',
+        'date_modified',
+        'date_available',
+        'weight',
+        'weight_unit',
+        'length',
+        'width',
+        'height',
+        'length_unit',
+        'status',
+        'tax_class_id',
+        'seo_keyword',
+        'description',
+        'meta_title',
+        'meta_description',
+        'meta_h1',
+        'meta_keywords',
+        'stock_status_id',
+        'store_ids',
+        'layout',
+        'related_ids',
+        'tags',
+        'sort_order',
+        'subtract',
+        'minimum',)
+
+
+admin.site.register(Gardeneqm, GardenEqmListAdmin)
 #
 #
 # class ForageAddAdmin(admin.ModelAdmin):

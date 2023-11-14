@@ -1,0 +1,23 @@
+{% extends 'home_pets/base.html' %}
+{% load static %}
+
+{% block title %}
+Войти
+{% endblock %}
+
+{% block content %}
+<div class="order_form">
+       <div>
+             <h1>Авторизация</h1>
+       </div>
+     <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+       <div>
+           <button type="submit">Авторизация</button>
+
+       </div>
+
+        </form>
+    </div>
+{% endblock %}

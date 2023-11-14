@@ -37,7 +37,25 @@
 
 		  </div>
 		<div class="key-see-all">
-			<a href="#all-pitomecs">Посмотреть всех(157)</a>
+				{% if page_obj.has_previous %}
+					<li class="page-num">
+        				 <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+					</li>
+				{% endif %}
+				{% for p in paginator.page_range %}
+                   {% if page_obj.number == p %}
+        				<li class="page-num page-num-selected">{{ p }}</li>
+                   {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2  %}
+       					 <li class="page-num">
+            				<a href="?page={{ p }}">{{ p }}</a>
+						 </li>
+                   {% endif %}
+        		{% endfor %}
+				{% if page_obj.has_next %}
+					<li class="page-num">
+         					<a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+					</li>
+				{% endif %}
 		</div>
 		    <div class="down-pitomec-list">
 			    <p>Помочь быстрее пристроить хвостиков можно путем размещения наших постов у себя в соц сетях. Переходите на

@@ -38,7 +38,7 @@ def categories(request):
 
 
 class FaucetsList(ListView):
-    paginate_by = 3
+    paginate_by = 6
     model = Faucet
     template_name = 'gerhans/faucets.html'
     context_object_name = 'faucet'
@@ -46,9 +46,9 @@ class FaucetsList(ListView):
 
 
 
-class basins(ListView):
+class BasinsList(ListView):
     paginate_by = 3
-    model = Basins
+    model = Basin
     template_name = 'gerhans/basin.html'
     context_object_name = 'basin'
     extra_context = {'title':'Мойки'}
@@ -56,9 +56,9 @@ class basins(ListView):
 
 class AccessoriesList(ListView):
     paginate_by = 3
-    model = Accessories
+    model = Accessory
     template_name = 'gerhans/accessories.html'
-    context_object_name = 'accessories'
+    context_object_name = 'accessory'
     extra_context = {'title':'Аксессуары'}
 
 # def garden(request):
