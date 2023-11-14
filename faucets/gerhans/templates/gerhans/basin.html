@@ -8,33 +8,32 @@
 {% block content %}
 
      <section class="list-podopechnih">
-		<h2 id="ower-pets">Каталог моек и аксессуаров</h2>
+		<h2 id="ower-pets">Мойки</h2>
 		  <div class="list carts podopechnih">
-			  {% for i in basin %}
+			  {% for bas in basinitem %}
 			      <div class="cart pitomec monic">
 
-					    	<div><img class="foto" src="{{basins.foto.url}}"/></div>
+					    	<div><img class="foto" src="{{bas.foto.url}}"/></div>
 
 				            <div class="name pitomec">
-					             <h4 class="name-cart-pitomec monic">{{basins.article}}</h4>
+					             <h4 class="name-cart-pitomec monic">{{bas.article}}</h4>
 				            </div>
 
 				        <div class="line carts"></div>
 
-				        <p class="about pitomec monic">{{basins.price}}</p>
+				        <p class="about pitomec monic">{{bas.price}}</p>
 
-				        <p class="more about pitomec monic">{{basins.name}}</p>
+				        <p class="more about pitomec monic">{{bas.name}}</p>
 				        <div class="key-block ">
 					           <a href="{% url 'basket' %}" >
-							     <button class="key-top" onclick=''>Купить</button>
+							     <button class="key-top" onclick=''>В корзину</button>
 							   </a>
 							   <a href="{% url 'favorites' %}" >
-					             <button class="key-down">В избранное</button>
+					             <button class="key-down">В закладки</button>
 							   </a>
 				        </div>
 			       </div>
 			  {% endfor %}
-
 		  </div>
 		<div class="key-see-all">
 				{% if page_obj.has_previous %}
@@ -58,7 +57,7 @@
 				{% endif %}
 		</div>
 		    <div class="down-pitomec-list">
-			    <p>Мы в соц сетях. Переходите на
+			    <p>Переходите на
 				наши странички.</p>
 			    <div class="double-sotial">
 					<div class="double-sotial">

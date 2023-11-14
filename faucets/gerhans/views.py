@@ -50,7 +50,7 @@ class BasinsList(ListView):
     paginate_by = 3
     model = Basin
     template_name = 'gerhans/basin.html'
-    context_object_name = 'basin'
+    context_object_name = 'basinitem'
     extra_context = {'title':'Мойки'}
 
 
@@ -70,14 +70,14 @@ class GardenItemList(ListView):
     paginate_by = 3
     model = Gardeneqm
     template_name = 'gerhans/garden.html'
-    context_object_name = 'item'
+    context_object_name = 'gardenitem'
     extra_context = {'title':'Садовое оборудование'}
 
 class SewerageList(ListView):
     paginate_by = 3
     model = Gardeneqm
     template_name = 'gerhans/sewerage.html'
-    context_object_name = 'item'
+    context_object_name = 'sewerageitem'
     extra_context = {'title':'Садовое оборудование'}
 
 # def sewerage(request):

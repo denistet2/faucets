@@ -8,34 +8,34 @@
 {% block content %}
 
      <section class="list-podopechnih">
-		<h2 id="ower-pets">Наши товары</h2>
+		<h2 id="ower-pets">Канализация</h2>
 		  <div class="list carts podopechnih">
-			  {% for homepet in pets %}
+			  {% for kan in sewerageitem %}
 			      <div class="cart pitomec monic">
-					    	<div><img class="foto" src="{{item.foto.url}}"/></div>
-<!--					  <img src="{{ object.img.url }}" />-->
+
+					    	<div><img class="foto" src="{{kan.foto.url}}"/></div>
+
 				            <div class="name pitomec">
-					             <h4 class="name-cart-pitomec monic">{{item.article}}</h4>
+					             <h4 class="name-cart-pitomec monic">{{kan.article}}</h4>
 				            </div>
 
 				        <div class="line carts"></div>
 
-				        <p class="about pitomec monic">{{homepet.age_pets}}</p>
+				        <p class="about pitomec monic">{{kan.price}}</p>
 
-				        <p class="more about pitomec monic">{{homepet.text_about_pets}}</p>
+				        <p class="more about pitomec monic">{{kan.name}}</p>
 				        <div class="key-block ">
-					           <a href="{% url 'tohome' %}" >
-							     <button class="key-top" onclick=''>Забрать домой</button>
+					           <a href="{% url 'basket' %}" >
+							     <button class="key-top" onclick=''>В корзину</button>
 							   </a>
-							   <a href="{% url 'temporarily' %}" >
-					             <button class="key-down">Забрать на передержку</button>
+							   <a href="{% url 'favorites' %}" >
+					             <button class="key-down">В закладки</button>
 							   </a>
 				        </div>
 			       </div>
 			  {% endfor %}
-
 		  </div>
-			<div class="key-see-all">
+		<div class="key-see-all">
 				{% if page_obj.has_previous %}
 					<li class="page-num">
         				 <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
@@ -56,7 +56,8 @@
 					</li>
 				{% endif %}
 		</div>
-			    <p>Помочь быстрее пристроить хвостиков можно путем размещения наших постов у себя в соц сетях. Переходите на
+		    <div class="down-pitomec-list">
+			    <p>Переходите на
 				наши странички.</p>
 			    <div class="double-sotial">
 					<div class="double-sotial">
