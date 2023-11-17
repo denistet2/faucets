@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'gerhans.apps.GerhansConfig',
     'import_export',
+    'cart',
 ]
 
 MIDDLEWARE = [
