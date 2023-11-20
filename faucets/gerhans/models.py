@@ -16,6 +16,14 @@ class SuperRubricManager(models.Manager):
 
 class SuperRubric(Rubric):
     object = SuperRubricManager()
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        proxy = True
+        ordering = ('order', 'name')
+        verbose_name = 'Надрубрика'
+        verbose_name_plural = 'Надрубрики'
 
 class Product(models.Model):
     Product_category = [
