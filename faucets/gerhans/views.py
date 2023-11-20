@@ -37,18 +37,18 @@ def categories(request):
 
 
 
-class FaucetsList(ListView):
+class ProductList(ListView):
     paginate_by = 6
-    model = Faucet
+    model = Product
     template_name = 'gerhans/faucets.html'
-    context_object_name = 'faucet'
+    context_object_name = 'productlist'
     extra_context = {'title':'Смесители'}
 
 
 
 class BasinsList(ListView):
     paginate_by = 3
-    model = Basin
+    model = Product
     template_name = 'gerhans/basin.html'
     context_object_name = 'basinitem'
     extra_context = {'title':'Мойки'}
@@ -56,7 +56,7 @@ class BasinsList(ListView):
 
 class AccessoriesList(ListView):
     paginate_by = 3
-    model = Accessory
+    model = Product
     template_name = 'gerhans/accessories.html'
     context_object_name = 'accessory'
     extra_context = {'title':'Аксессуары'}
@@ -68,14 +68,14 @@ class AccessoriesList(ListView):
 
 class GardenItemList(ListView):
     paginate_by = 3
-    model = Gardeneqm
+    model = Product
     template_name = 'gerhans/garden.html'
     context_object_name = 'gardenitem'
     extra_context = {'title':'Садовое оборудование'}
 
 class SewerageList(ListView):
     paginate_by = 3
-    model = Gardeneqm
+    model = Product
     template_name = 'gerhans/sewerage.html'
     context_object_name = 'sewerageitem'
     extra_context = {'title':'Садовое оборудование'}

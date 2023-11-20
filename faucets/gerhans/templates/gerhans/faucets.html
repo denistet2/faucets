@@ -2,15 +2,15 @@
 {% load static %}
 
 {% block title %}
-Смесители
+{{rubric}}
 {% endblock %}
 
 {% block content %}
 
      <section class="list-podopechnih">
-		<h2 id="ower-pets">Смесители</h2>
+		<h2 id="ower-pets">{{rubric}}</h2>
 		  <div class="list carts podopechnih">
-			  {% for i in faucet %}
+			  {% for i in productlist.objects.filter(categories = 1) %}
 			      <div class="cart pitomec monic">
 
 					    	<div><img class="foto" src="{{i.foto.url}}"/></div>
