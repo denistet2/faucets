@@ -6,7 +6,7 @@ from import_export import fields
 from import_export.widgets import ForeignKeyWidget
 
 
-class FaucetsListAdmin(ImportExportActionModelAdmin):
+class ProductAdmin(ImportExportActionModelAdmin):
     list_display = (
                      'name',
                      'categories',
@@ -51,103 +51,8 @@ class FaucetsListAdmin(ImportExportActionModelAdmin):
                      'minimum',)
 
 
-admin.site.register(Faucet, FaucetsListAdmin)
+admin.site.register(Product, ProductAdmin)
 
-
-class BasinsListAdmin(ImportExportActionModelAdmin):
-    list_display = (
-        'name',
-        'categories',
-        'sku',
-        'upc',
-        'ean',
-        'jan',
-        'isbn',
-        'mpn',
-        'location',
-        'quantity',
-        'model',
-        'manufacturer',
-        'image_name',
-        'shipping',
-        'price',
-        'points',
-        'date_added',
-        'date_modified',
-        'date_available',
-        'weight',
-        'weight_unit',
-        'length',
-        'width',
-        'height',
-        'length_unit',
-        'status',
-        'tax_class_id',
-        'seo_keyword',
-        'description',
-        'meta_title',
-        'meta_description',
-        'meta_h1',
-        'meta_keywords',
-        'stock_status_id',
-        'store_ids',
-        'layout',
-        'related_ids',
-        'tags',
-        'sort_order',
-        'subtract',
-        'minimum',)
-
-
-admin.site.register(Basin, BasinsListAdmin)
-
-
-class AccessoriesListAdmin(ImportExportActionModelAdmin):
-    list_display = (
-        'name',
-        'categories',
-        'sku',
-        'upc',
-        'ean',
-        'jan',
-        'isbn',
-        'mpn',
-        'location',
-        'quantity',
-        'model',
-        'manufacturer',
-        'image_name',
-        'shipping',
-        'price',
-        'points',
-        'date_added',
-        'date_modified',
-        'date_available',
-        'weight',
-        'weight_unit',
-        'length',
-        'width',
-        'height',
-        'length_unit',
-        'status',
-        'tax_class_id',
-        'seo_keyword',
-        'description',
-        'meta_title',
-        'meta_description',
-        'meta_h1',
-        'meta_keywords',
-        'stock_status_id',
-        'store_ids',
-        'layout',
-        'related_ids',
-        'tags',
-        'sort_order',
-        'subtract',
-        'minimum',)
-
-
-admin.site.register(Accessory, AccessoriesListAdmin)
 
 
 
@@ -180,53 +85,7 @@ admin.site.register(Accessory, AccessoriesListAdmin)
 # admin.site.register(VolOrder, VolOrderAdmin)
 #
 #
-class GardenEqmListAdmin(ImportExportActionModelAdmin):
-    list_display = (
-        'name',
-        'categories',
-        'sku',
-        'upc',
-        'ean',
-        'jan',
-        'isbn',
-        'mpn',
-        'location',
-        'quantity',
-        'model',
-        'manufacturer',
-        'image_name',
-        'shipping',
-        'price',
-        'points',
-        'date_added',
-        'date_modified',
-        'date_available',
-        'weight',
-        'weight_unit',
-        'length',
-        'width',
-        'height',
-        'length_unit',
-        'status',
-        'tax_class_id',
-        'seo_keyword',
-        'description',
-        'meta_title',
-        'meta_description',
-        'meta_h1',
-        'meta_keywords',
-        'stock_status_id',
-        'store_ids',
-        'layout',
-        'related_ids',
-        'tags',
-        'sort_order',
-        'subtract',
-        'minimum',)
 
-
-admin.site.register(Gardeneqm, GardenEqmListAdmin)
-#
 #
 # class ForageAddAdmin(admin.ModelAdmin):
 #     list_display = ('forage_type', 'forage_weight', 'name', 'phone')

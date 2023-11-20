@@ -3,9 +3,30 @@ from datetime import datetime
 from django.core.validators import RegexValidator
 
 
-class Faucet(models.Model):
+
+
+class Rubric(models.Model):
+    name = models.CharField(max_length=20, db_index=True, unique=True, verbose_name='Название')
+    order = models.SmallIntegerField(default=0, db_index=True, verbose_name='Порядок')
+    super_rubric = models.ForeignKey('SuperRubric', on_delete=models.PROTECT, null=True, blank=True, verbose_name='Надрубрика')
+
+class SuperRubricManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(super_rubric_isnull=True)
+
+class SuperRubric(Rubric):
+    object = SuperRubricManager()
+
+class Product(models.Model):
+    Product_category = [
+
+        (1, 'Faucet'),
+        (2, 'Basin'),
+        (3, 'Accessory'),
+        (4, 'Gardeneqm')
+    ]
     name = models.CharField('Наименование', blank=True, max_length=30, help_text="Артикул")
-    categories = models.CharField('Категория', blank=True, max_length=20, help_text="Артикул")
+    categories = models.PositiveSmallIntegerField('Категория',choices=Product_category, help_text="Артикул")
     sku = models.CharField('Артикул', blank=True, max_length=20, help_text="Артикул")
     upc = models.CharField('UPC', blank=False, max_length=20, help_text="Внутренний код")
     ean = models.CharField('EAN', blank=True, max_length=20, help_text="Штрихкод")
@@ -17,7 +38,7 @@ class Faucet(models.Model):
     model = models.CharField('Модель', blank=True, max_length=20, help_text="На упаковке")
     manufacturer = models.CharField('Производитель', blank=True, max_length=20, help_text="Артикул")
     image_name = models.CharField('Изображение', blank=True, max_length=20, help_text="фото")
-    foto = models.ImageField(upload_to='images', blank=True, verbose_name='Фото')
+    foto = models.ImageField(upload_to='images', blank=True, verbose_name='Изображение')
     shipping = models.CharField('Пересылка', blank=True, max_length=20, help_text="Артикул")
     price = models.DecimalField('Цена', blank=True, help_text="Цена", max_digits=8, decimal_places=2)
     points = models.CharField('Баллы', blank=True, max_length=20, help_text="Артикул")
@@ -48,152 +69,10 @@ class Faucet(models.Model):
     minimum = models.CharField('Минимальный остаток', blank=True, max_length=20, help_text="Артикул")
 
 
-class Basin(models.Model):
-    name = models.CharField('Наименование', blank=True, max_length=30, help_text="Артикул")
-    categories = models.CharField('Категория', blank=True, max_length=20, help_text="Артикул")
-    sku = models.CharField('Артикул', blank=True, max_length=20, help_text="Артикул")
-    upc = models.CharField('UPC', blank=False, max_length=20, help_text="Внутренний код")
-    ean = models.CharField('EAN', blank=True, max_length=20, help_text="Штрихкод")
-    jan = models.CharField('JAN', blank=True, max_length=20, help_text="Артикул")
-    isbn = models.CharField('ISBN', blank=True, max_length=20, help_text="Артикул")
-    mpn = models.CharField('MPN', blank=True, max_length=20, help_text="Артикул")
-    location = models.CharField('Размещение', blank=True, max_length=20, help_text="Артикул")
-    quantity = models.CharField('Количество', blank=True, max_length=20, help_text="Артикул")
-    model = models.CharField('Модель', blank=True, max_length=20, help_text="На упаковке")
-    manufacturer = models.CharField('Производитель', blank=True, max_length=20, help_text="Артикул")
-    image_name = models.CharField('Изображение', blank=True, max_length=20, help_text="фото")
-    foto = models.ImageField(upload_to='images', blank=True, verbose_name='Фото')
-    shipping = models.CharField('Пересылка', blank=True, max_length=20, help_text="Артикул")
-    price = models.DecimalField('Цена', blank=True, help_text="Цена", max_digits=8, decimal_places=2)
-    points = models.CharField('Баллы', blank=True, max_length=20, help_text="Артикул")
-    date_added = models.DateTimeField('Дата добавления', auto_now_add=True, db_index=True)
-    date_modified = models.DateTimeField('Дата изменений', auto_now_add=True, db_index=True)
-    date_available = models.DateTimeField('Дата поступления', auto_now_add=True, db_index=True)
-    weight = models.CharField('Вес', blank=True, max_length=20, help_text="Артикул")
-    weight_unit = models.CharField('Вес нетто', blank=True, max_length=20, help_text="Артикул")
-    length = models.CharField('Длина', blank=True, max_length=20, help_text="Артикул")
-    width = models.CharField('Ширина', blank=True, max_length=20, help_text="Артикул")
-    height = models.CharField('Высота', blank=True, max_length=20, help_text="Артикул")
-    length_unit = models.CharField('Габарит', blank=True, max_length=20, help_text="Артикул")
-    status = models.CharField('Наличие', blank=True, max_length=20, help_text="Артикул")
-    tax_class_id = models.CharField('Налог', blank=True, max_length=20, help_text="Артикул")
-    seo_keyword = models.CharField('Url ЧПУ', blank=True, max_length=20, help_text="Артикул")
-    description = models.CharField('Описание', blank=True, max_length=20, help_text="Артикул")
-    meta_title = models.CharField('title', blank=True, max_length=20, help_text="Артикул")
-    meta_description = models.CharField('Снипет', blank=True, max_length=20, help_text="Артикул")
-    meta_h1 = models.CharField('Заголовок H1', blank=True, max_length=20, help_text="Артикул")
-    meta_keywords = models.CharField('Ключевые слова', blank=True, max_length=20, help_text="Артикул")
-    stock_status_id = models.CharField('Наличие в продаже', blank=True, max_length=20, help_text="Артикул")
-    store_ids = models.CharField('Магазин', blank=True, max_length=20, help_text="Артикул")
-    layout = models.CharField('Сорт', blank=True, max_length=20, help_text="Артикул")
-    related_ids = models.CharField('Аналоги', blank=True, max_length=20, help_text="Артикул")
-    tags = models.CharField('Тэги', blank=True, max_length=20, help_text="Артикул")
-    sort_order = models.CharField('Сортировка', blank=True, max_length=20, help_text="Артикул")
-    subtract = models.CharField('Резервирование', blank=True, max_length=20, help_text="Артикул")
-    minimum = models.CharField('Минимальный остаток', blank=True, max_length=20, help_text="Артикул")
-
-class Accessory(models.Model):
-    name = models.CharField('Наименование', blank=True, max_length=30, help_text="Артикул")
-    categories = models.CharField('Категория', blank=True, max_length=20, help_text="Артикул")
-    sku = models.CharField('Артикул', blank=True, max_length=20, help_text="Артикул")
-    upc = models.CharField('UPC', blank=False, max_length=20, help_text="Внутренний код")
-    ean = models.CharField('EAN', blank=True, max_length=20, help_text="Штрихкод")
-    jan = models.CharField('JAN', blank=True, max_length=20, help_text="Артикул")
-    isbn = models.CharField('ISBN', blank=True, max_length=20, help_text="Артикул")
-    mpn = models.CharField('MPN', blank=True, max_length=20, help_text="Артикул")
-    location = models.CharField('Размещение', blank=True, max_length=20, help_text="Артикул")
-    quantity = models.CharField('Количество', blank=True, max_length=20, help_text="Артикул")
-    model = models.CharField('Модель', blank=True, max_length=20, help_text="На упаковке")
-    manufacturer = models.CharField('Производитель', blank=True, max_length=20, help_text="Артикул")
-    image_name = models.CharField('Изображение', blank=True, max_length=20, help_text="фото")
-    foto = models.ImageField(upload_to='images', blank=True, verbose_name='Фото')
-    shipping = models.CharField('Пересылка', blank=True, max_length=20, help_text="Артикул")
-    price = models.DecimalField('Цена', blank=True, help_text="Цена", max_digits=8, decimal_places=2)
-    points = models.CharField('Баллы', blank=True, max_length=20, help_text="Артикул")
-    date_added = models.DateTimeField('Дата добавления', auto_now_add=True, db_index=True)
-    date_modified = models.DateTimeField('Дата изменений', auto_now_add=True, db_index=True)
-    date_available = models.DateTimeField('Дата поступления', auto_now_add=True, db_index=True)
-    weight = models.CharField('Вес', blank=True, max_length=20, help_text="Артикул")
-    weight_unit = models.CharField('Вес нетто', blank=True, max_length=20, help_text="Артикул")
-    length = models.CharField('Длина', blank=True, max_length=20, help_text="Артикул")
-    width = models.CharField('Ширина', blank=True, max_length=20, help_text="Артикул")
-    height = models.CharField('Высота', blank=True, max_length=20, help_text="Артикул")
-    length_unit = models.CharField('Габарит', blank=True, max_length=20, help_text="Артикул")
-    status = models.CharField('Наличие', blank=True, max_length=20, help_text="Артикул")
-    tax_class_id = models.CharField('Налог', blank=True, max_length=20, help_text="Артикул")
-    seo_keyword = models.CharField('Url ЧПУ', blank=True, max_length=20, help_text="Артикул")
-    description = models.CharField('Описание', blank=True, max_length=20, help_text="Артикул")
-    meta_title = models.CharField('title', blank=True, max_length=20, help_text="Артикул")
-    meta_description = models.CharField('Снипет', blank=True, max_length=20, help_text="Артикул")
-    meta_h1 = models.CharField('Заголовок H1', blank=True, max_length=20, help_text="Артикул")
-    meta_keywords = models.CharField('Ключевые слова', blank=True, max_length=20, help_text="Артикул")
-    stock_status_id = models.CharField('Наличие в продаже', blank=True, max_length=20, help_text="Артикул")
-    store_ids = models.CharField('Магазин', blank=True, max_length=20, help_text="Артикул")
-    layout = models.CharField('Сорт', blank=True, max_length=20, help_text="Артикул")
-    related_ids = models.CharField('Аналоги', blank=True, max_length=20, help_text="Артикул")
-    tags = models.CharField('Тэги', blank=True, max_length=20, help_text="Артикул")
-    sort_order = models.CharField('Сортировка', blank=True, max_length=20, help_text="Артикул")
-    subtract = models.CharField('Резервирование', blank=True, max_length=20, help_text="Артикул")
-    minimum = models.CharField('Минимальный остаток', blank=True, max_length=20, help_text="Артикул")
 
 
-class Gardeneqm(models.Model):
-    name = models.CharField('Наименование', blank=True, max_length=30, help_text="Артикул")
-    categories = models.CharField('Категория', blank=True, max_length=20, help_text="Артикул")
-    sku = models.CharField('Артикул', blank=True, max_length=20, help_text="Артикул")
-    upc = models.CharField('UPC', blank=False, max_length=20, help_text="Внутренний код")
-    ean = models.CharField('EAN', blank=True, max_length=20, help_text="Штрихкод")
-    jan = models.CharField('JAN', blank=True, max_length=20, help_text="Артикул")
-    isbn = models.CharField('ISBN', blank=True, max_length=20, help_text="Артикул")
-    mpn = models.CharField('MPN', blank=True, max_length=20, help_text="Артикул")
-    location = models.CharField('Размещение', blank=True, max_length=20, help_text="Артикул")
-    quantity = models.CharField('Количество', blank=True, max_length=20, help_text="Артикул")
-    model = models.CharField('Модель', blank=True, max_length=20, help_text="На упаковке")
-    manufacturer = models.CharField('Производитель', blank=True, max_length=20, help_text="Артикул")
-    image_name = models.CharField('Изображение', blank=True, max_length=20, help_text="фото")
-    foto = models.ImageField(upload_to='images', blank=True, verbose_name='Фото')
-    shipping = models.CharField('Пересылка', blank=True, max_length=20, help_text="Артикул")
-    price = models.DecimalField('Цена', blank=True, help_text="Цена", max_digits=8, decimal_places=2)
-    points = models.CharField('Баллы', blank=True, max_length=20, help_text="Артикул")
-    date_added = models.DateTimeField('Дата добавления', auto_now_add=True, db_index=True)
-    date_modified = models.DateTimeField('Дата изменений', auto_now_add=True, db_index=True)
-    date_available = models.DateTimeField('Дата поступления', auto_now_add=True, db_index=True)
-    weight = models.CharField('Вес', blank=True, max_length=20, help_text="Артикул")
-    weight_unit = models.CharField('Вес нетто', blank=True, max_length=20, help_text="Артикул")
-    length = models.CharField('Длина', blank=True, max_length=20, help_text="Артикул")
-    width = models.CharField('Ширина', blank=True, max_length=20, help_text="Артикул")
-    height = models.CharField('Высота', blank=True, max_length=20, help_text="Артикул")
-    length_unit = models.CharField('Габарит', blank=True, max_length=20, help_text="Артикул")
-    status = models.CharField('Наличие', blank=True, max_length=20, help_text="Артикул")
-    tax_class_id = models.CharField('Налог', blank=True, max_length=20, help_text="Артикул")
-    seo_keyword = models.CharField('Url ЧПУ', blank=True, max_length=20, help_text="Артикул")
-    description = models.CharField('Описание', blank=True, max_length=20, help_text="Артикул")
-    meta_title = models.CharField('title', blank=True, max_length=20, help_text="Артикул")
-    meta_description = models.CharField('Снипет', blank=True, max_length=20, help_text="Артикул")
-    meta_h1 = models.CharField('Заголовок H1', blank=True, max_length=20, help_text="Артикул")
-    meta_keywords = models.CharField('Ключевые слова', blank=True, max_length=20, help_text="Артикул")
-    stock_status_id = models.CharField('Наличие в продаже', blank=True, max_length=20, help_text="Артикул")
-    store_ids = models.CharField('Магазин', blank=True, max_length=20, help_text="Артикул")
-    layout = models.CharField('Сорт', blank=True, max_length=20, help_text="Артикул")
-    related_ids = models.CharField('Аналоги', blank=True, max_length=20, help_text="Артикул")
-    tags = models.CharField('Тэги', blank=True, max_length=20, help_text="Артикул")
-    sort_order = models.CharField('Сортировка', blank=True, max_length=20, help_text="Артикул")
-    subtract = models.CharField('Резервирование', blank=True, max_length=20, help_text="Артикул")
-    minimum = models.CharField('Минимальный остаток', blank=True, max_length=20, help_text="Артикул")
 
-# class HelpList(models.Model):
-#     help_id = models.CharField(max_length=20, help_text="Enter field documentation")
-#
-#
-# class OrderHelp(models.Model):
-#     name = models.CharField('Волонтер',max_length=20, help_text="Имя")
-#     help_type = models.CharField(max_length=10)
-#     email = models.EmailField()
-#     phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
-#     phone = models.CharField('Телефон', validators=[phoneNumberRegex], max_length=16, unique=True)
-#
-#
-#
+
 class News(models.Model):
     article = models.CharField(max_length=20, help_text="Enter field documentation")
     text_news = models.TextField(max_length=20, help_text="Enter field documentation")
