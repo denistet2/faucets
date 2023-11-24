@@ -1,11 +1,20 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from django.views.generic import ListView
-from .models import *
+from .models import Rubric, Product
 from .forms import *
 from django.core.paginator import Paginator
 
 # Create your views here.
+# def categories(request):
+#     return render(request, 'gerhans/categories.html')
+def by_rubric(request, rubric_id):
+    categories = Product.objects.filter(rubric=rubric_id)
+    rubrics = Rubric.objects.all()
+    curent_rubric = Rubric.objects.get(pk=rubric_id)
+    context = {'categories': categories, 'rubrics': rubrics, 'current_rubric': curent_rubric}
+    return render(request, 'gerhans/categories.html', context)
+
 
 
 def index(request):
@@ -32,23 +41,22 @@ def delivery(request):
     return render(request, 'gerhans/delivery.html')
 
 
-def categories(request):
-    return render(request, 'gerhans/categories.html')
 
 
 
-class FaucetsList(ListView):
-    paginate_by = 6
-    model = Faucet
+
+class ProductList(ListView):
+    paginate_by = 3
+    model = Product
     template_name = 'gerhans/faucets.html'
-    context_object_name = 'faucet'
+    context_object_name = 'production'
     extra_context = {'title':'Смесители'}
 
 
 
 class BasinsList(ListView):
     paginate_by = 3
-    model = Basin
+    model = Product
     template_name = 'gerhans/basin.html'
     context_object_name = 'basinitem'
     extra_context = {'title':'Мойки'}
@@ -56,39 +64,26 @@ class BasinsList(ListView):
 
 class AccessoriesList(ListView):
     paginate_by = 3
-    model = Accessory
+    model = Product
     template_name = 'gerhans/accessories.html'
     context_object_name = 'accessory'
     extra_context = {'title':'Аксессуары'}
 
-# def garden(request):
-#
-#     pets = items.objects.all()
-#     return render(request, 'gerhans/garden.html',{'item': items})
+
 
 class GardenItemList(ListView):
     paginate_by = 3
-    model = Gardeneqm
+    model = Product
     template_name = 'gerhans/garden.html'
     context_object_name = 'gardenitem'
     extra_context = {'title':'Садовое оборудование'}
 
 class SewerageList(ListView):
     paginate_by = 3
-    model = Gardeneqm
+    model = Product
     template_name = 'gerhans/sewerage.html'
     context_object_name = 'sewerageitem'
     extra_context = {'title':'Садовое оборудование'}
-
-# def sewerage(request):
-#
-#     pets = items.objects.all()
-#     return render(request, 'gerhans/sewerage.html',{'item': items})
-
-# def favorites(request):
-#
-#     items = items.objects.all()
-#     return render(request, 'gerhans/favorites.html',{'item': items})
 
 
 def basket(request):
@@ -113,27 +108,6 @@ def FavoritesList(request):
     return render(request, 'gerhans/favorites.html',{'form': form})
 
 
-# def transportation_order(request):
-#     if request.method == 'POST':
-#         form = AdTransportHelpForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#     else:
-#         form = AdTransportHelpForm()
-#
-#     return render(request, 'gerhans/transportation_order.html',{'form': form})
-
-
-
-# def volunteering_help(request):
-#     if request.method == 'POST':
-#         form = AdVolOrderForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#     else:
-#         form = AdVolOrderForm()
-#     return render(request, 'gerhans/volunteering_help.html',{'form': form})
-
 
 def financial_support(request):
     return render(request, 'gerhans/financial_support.html')
@@ -141,14 +115,3 @@ def financial_support(request):
 
 def parts(request):
     return render(request, 'gerhans/parts.html')
-#
-#
-# def food_medicines_help(request):
-#     if request.method == 'POST':
-#         form = AdFoodMedicinesHelpForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#     else:
-#         form = AdFoodMedicinesHelpForm()
-#     return render(request, 'gerhans/food_medicines_help.html',{'form': form})
-#

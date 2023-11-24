@@ -2,15 +2,15 @@
 {% load static %}
 
 {% block title %}
-Смесители
+{{rubric}}
 {% endblock %}
 
 {% block content %}
 
      <section class="list-podopechnih">
-		<h2 id="ower-pets">Смесители</h2>
+		<h2 id="ower-pets">{{rubric}}</h2>
 		  <div class="list carts podopechnih">
-			  {% for i in faucet %}
+			  {% for i in productlist.objects.filter(categories = 1) %}
 			      <div class="cart pitomec monic">
 
 					    	<div><img class="foto" src="{{i.foto.url}}"/></div>
@@ -61,7 +61,7 @@
 				наши странички.</p>
 			    <div class="double-sotial">
 					<div class="double-sotial">
-						<a class="vc" href="https://t.me/ooo_ashdvao_opt"><<svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41" fill="none">
+						<a class="vc" href="https://t.me/ooo_ashdvao_opt"><svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41" fill="none">
   <path d="M0.634766 20.8527C0.634766 9.80475 9.59089 0.848633 20.6388 0.848633C31.6868 0.848633 40.6429 9.80475 40.6429 20.8527C40.6429 31.9006 31.6868 40.8568 20.6388 40.8568C9.59089 40.8568 0.634766 31.9006 0.634766 20.8527Z" fill="#0798E3"/>
   <path d="M10.5323 19.1666L27.7384 12.0867C28.537 11.7788 29.2344 12.2946 28.9757 13.5833L28.9772 13.5817L26.0475 28.3113C25.8304 29.3556 25.2489 29.6095 24.4355 29.1175L19.9741 25.6085L17.8222 27.8209C17.5843 28.0748 17.3835 28.2891 16.9225 28.2891L17.2393 23.4438L25.5077 15.4719C25.8676 15.1338 25.4274 14.9434 24.953 15.2798L14.7349 22.1455L10.33 20.6791C9.37382 20.3553 9.353 19.6586 10.5323 19.1666Z" fill="white"/>
 </svg></a>
