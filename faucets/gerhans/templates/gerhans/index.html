@@ -1,25 +1,11 @@
-{% extends 'gerhans/base.html' %}
+{% extends 'gerhans/basic.html' %}
 {% load static %}
 
-{% block title %}
-Главная
-{% endblock %}
+<!--{% block title %}-->
+<!--Главная-->
+<!--{% endblock %}-->
 
 {% block content %}
+	<h2>последние 10 новинок</h2>
 
-		<section class="top-page1">
-		<img class="top-foto" src="{% static 'gerhans/images/k35044bd.png' %}">
-
-		<h1 class="element0">GERHANS</h1>
-			<p class="element1">Немецкое качество</p>
-			<p class="element2">Наша продукция: качественная, красивая и удобная </p>
-				<div class="element-text" >
-			<p class="element3">Ваш выбор... </p>
-			<a href="{% url 'categories' %}" >
-							     <button class="key-top" onclick=''>Выбрать</button>
-							   </a>
-			<img class="pitomec1" src="{% static 'gerhans/images/kk4399u-12.png' %}" alt="faucets">
-			</div>
-
-		</section>
 {% endblock %}

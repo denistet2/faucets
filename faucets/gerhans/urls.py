@@ -1,13 +1,16 @@
 from django.urls import path
-from .views import *
+from .views import index
+from .views import other_page
+
+app_name = 'gerhans'
 
 urlpatterns = [
-    path('<int:rubric_id>/', by_rubric),
+    path('<str:page>/', other_page, name='other'),
     path('', index, name='index'),
-    path('about/', about, name='about'),
-    path('contacts/', contacts, name='contacts'),
-    path('news/', news, name='news'),
-    path('categories/', categories, name='categories'),
+    # path('about/', about, name='about'),
+    # path('contacts/', contacts, name='contacts'),
+    # path('news/', news, name='news'),
+    # path('categories/', categories, name='categories'),
     # path('faucets/', ProductList.as_view(), name='faucets'),
     # path('basins/', ProductList.as_view(), name='basins'),
     # path('accessories/', ProductList.as_view(), name='accessories'),

@@ -1,0 +1,71 @@
+{% load bootstrap4 %}
+{% load static %}
+
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1, shink-to-fit=no">
+        <title>{% block title %}Главная{% endblock %} - Сайт Gerhans
+        </title>
+        {% bootstrap_css %}
+        <link rel="stylesheet" type="text/css"
+        href="{% static 'gerhans/style.css' %}">
+        {% bootstrap_javascript jquery='slim' %}
+</head>
+<body class="container-fluid">
+    <header class="mb-4"
+        <h1 class="display-1 text-center">Категории</h1>
+    </header>
+    <div class="row">
+        <ul class="col nav justify-content-end border">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Регистрация</a></li>
+                <li class="nav-link dropdown-toggle" data-toggle="dropdown"
+                    href="#" role="button" aria-haspopup="true"
+                    aria-expanded="false">Профиль</li>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Мои заказы</a>
+                        <a class="dropdown-item" href="#">Изменить личные данные</a>
+                        <a class="dropdown-item" href="#">Изменить пароль</a>
+                            <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Выйти</a>
+                            <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Удалить</a>
+                    </div>
+                </li>
+            <li class="nav-item"><a class="nav-link"
+            href="#">Вход</a> </li>
+        </ul>
+    </div>
+    <div class="row">
+        <nav class="col-md-auto nav flex-column border">
+            <a class="nav-link root"
+               href="{% url 'gerhans:index' %}">Главная</a>
+            <a class="nav-link root"
+               href="{% url 'gerhans:other' page='about' %}">О нас</a>
+            <span class="nav-link root font-weight-bold">Смесители</span>
+            <a class="nav-link" href="#">для ванной</a>
+            <a class="nav-link" href="#">для биде</a>
+            <a class="nav-link" href="#">для кухни</a>
+            <a class="nav-link" href="#">для туалета</a>
+            <a class="nav-link" href="#">для душа</a>
+            <span class="nav-link root font-weight-bold">Аксессуары</span>
+            <a class="nav-link" href="#">полки</a>
+            <a class="nav-link" href="#">вешалки</a>
+            <a class="nav-link" href="#">урны</a>
+            <a class="nav-link" href="#">для туалета</a>
+            <a class="nav-link" href="#">для душа</a>
+        </nav>
+        <section class="col border py-2">
+            {% bootstrap_messages %}
+            {% block content %}
+            {% endblock %}
+        </section>
+    </div>
+    <footer class="mt-3">
+        <p class="text-right font-italic">&copy; читетели.</p>
+    </footer>
+
+</body>
+</html>
