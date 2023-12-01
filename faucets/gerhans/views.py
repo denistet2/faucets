@@ -1,12 +1,16 @@
-from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView
-from django.views.generic import ListView
-from .models import *
-from .forms import *
-from django.core.paginator import Paginator
+from django.shortcuts import render
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LogoutView
 from django.http import HttpResponse, Http404
 from django.template import TemplateDoesNotExist
 from django.template.loader import get_template
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+
+@login_required
+def profile(request):
+    return render(request, 'gerhans/profile.html')
 
 # Create your views here.
 def other_page(request, page):
@@ -54,21 +58,12 @@ def index(request):
 #
 #
 #
-# class BasinsList(ListView):
-#     paginate_by = 3
-#     model = Product
-#     template_name = 'gerhans/basin.html'
-#     context_object_name = 'basinitem'
-#     extra_context = {'title':'Мойки'}
-#
-#
-# class AccessoriesList(ListView):
-#     paginate_by = 3
-#     model = Product
-#     template_name = 'gerhans/accessories.html'
-#     context_object_name = 'accessory'
-#     extra_context = {'title':'Аксессуары'}
-#
+class GSLoginView(LoginView):
+    template_name = 'gerhans/login.html'
+
+class GSLogoutView(LoginRequiredMixin, LogoutView):
+    template_name = 'gerhans/logout.html'
+
 # # def garden(request):
 # #
 # #     pets = items.objects.all()

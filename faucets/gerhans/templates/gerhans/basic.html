@@ -1,12 +1,12 @@
 {% load bootstrap4 %}
 {% load static %}
 
-<html xmlns="http://www.w3.org/1999/html">
+<html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
         content="width=device-width, initial-scale=1, shink-to-fit=no">
-        <title>{% block title %}Главная{% endblock %} - Сайт Gerhans
+        <title>{% block title %}{% endblock %} - Сайт Gerhans
         </title>
         {% bootstrap_css %}
         <link rel="stylesheet" type="text/css"
@@ -14,28 +14,32 @@
         {% bootstrap_javascript jquery='slim' %}
 </head>
 <body class="container-fluid">
-    <header class="mb-4"
+    <header class="mb-4">
         <h1 class="display-1 text-center">Категории</h1>
     </header>
     <div class="row">
         <ul class="col nav justify-content-end border">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Регистрация</a></li>
-                <li class="nav-link dropdown-toggle" data-toggle="dropdown"
+                <li class="nav-item"><a class="nav-link" href="#">Регистрация</a></li>
+                {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle"
+                       data-toggle="dropdown"
                     href="#" role="button" aria-haspopup="true"
-                    aria-expanded="false">Профиль</li>
+                    aria-expanded="false">Профиль</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Мои заказы</a>
+                        <a class="dropdown-item" href="{% url 'gerhans:profile' %}">Мои заказы</a>
                         <a class="dropdown-item" href="#">Изменить личные данные</a>
                         <a class="dropdown-item" href="#">Изменить пароль</a>
                             <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Выйти</a>
+                                <a class="dropdown-item" href="{% url 'gerhans:logout' %}">Выйти</a>
                             <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Удалить</a>
                     </div>
                 </li>
+            {% else %}
             <li class="nav-item"><a class="nav-link"
-            href="#">Вход</a> </li>
+            href="{% url 'gerhans:login' %}">Вход</a></li>
+            {% endif %}
         </ul>
     </div>
     <div class="row">

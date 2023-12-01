@@ -1,13 +1,13 @@
 from django.urls import path
-from .views import index
-from .views import other_page
-
+from .views import *
 app_name = 'gerhans'
 
 urlpatterns = [
     path('<str:page>/', other_page, name='other'),
     path('', index, name='index'),
-    # path('about/', about, name='about'),
+    path('accounts/profile/', profile, name='profile'),
+    path('accounts/login/', GSLoginView.as_view(), name='login'),
+    path('accounts/logout/', GSLogoutView.as_view(), name='logout'),
     # path('contacts/', contacts, name='contacts'),
     # path('news/', news, name='news'),
     # path('categories/', categories, name='categories'),
@@ -20,6 +20,5 @@ urlpatterns = [
     # path('financial_support/', financial_support, name='financial_support'),
     # path('basket/', basket, name='basket'),    # path('temporarily/', temporarily, name='temporarily'),
     # path('delivery/', delivery, name='delivery'),    # path('volunteering_help/', volunteering_help, name='volunteering_help'),
-    # path('parts/', parts, name='parts'),    # path('food_medicines_help/', food_medicines_help, name='food_medicines_help'),
-    # path('gift/', gift, name='gift'),
+
 ]
